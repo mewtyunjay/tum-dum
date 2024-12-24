@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('./assets/font/NunitoSans_10pt-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('./assets/font/BebasNeue-Regular.ttf') format('truetype');
+}
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";

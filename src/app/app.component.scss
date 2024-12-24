@@ -1,0 +1,584 @@
+.nav-bar-conatiner {
+  padding: 40px 8px;
+  background-color: rgba(123, 107, 81, 0.04);
+}
+
+.nav-active {
+  font-size: 20px;
+  line-height: 28px;
+  font-family: "Bebas Neue";
+  color: #5C503D;
+}
+
+.nav-disabled {
+  font-size: 20px;
+  line-height: 28px;
+  font-family: "Bebas Neue";
+  color: #C0BEB9;
+}
+
+.about-us-container {
+  padding: 120px 150px;
+  background-color: #F5F3F0;
+}
+
+.journey-text {
+  font-size: 112px;
+  line-height: 134.4px;
+  font-family: "Bebas Neue";
+  color: #1F1B14;
+  font-weight: 400;
+}
+
+.para-text {
+  font-family: "Nunito Sans";
+  font-size: 28px;
+  line-height: 40px;
+  color: #7B6B51;
+  margin-top: 40px;
+  margin-bottom: 64px;
+}
+
+.about-img {
+  // width: -webkit-fill-available;
+  // border-radius: 16px;
+  // height: 640px;
+    width: 70%;
+    border-radius: 16px;
+    margin-left: 16%;
+}
+
+.about-us-img {
+//   width: -webkit-fill-available;
+//   border-radius: 16px;
+//   height: 520px;
+    width: 70%;
+    margin-left: 16%;
+    border-radius: 16px;
+}
+.follow-container {
+  padding: 80px 100px;
+  background-color: #5C503D;
+}
+
+.follow-wrapper {
+    padding: 28px 45px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    min-height: 542px;
+    margin-left: 20px;
+}
+
+.logo-img {
+  width: 56px;
+}
+
+.instagram-img {
+  color: black;
+}
+
+.img-height {
+  min-height: 62px;
+  cursor: pointer;
+}
+
+.follow-para {
+  font-family: 'Nunito Sans';
+  font-size: 18px;
+  line-height: 28px;
+  color: #7B6B51;
+  width: 270px;
+}
+
+.follow-text {
+  font-size: 56px;
+  line-height: 78.4px;
+  font-family: "Gin";
+  color: #1F1B14;
+  font-weight: 400;
+}
+
+.about-container {
+  padding: 80px 150px;
+  background-color: #F5F3F0;
+}
+
+.wine-text {
+  font-size: 80px;
+  line-height: 96px;
+  font-family: "Bebas Neue";
+  color: #1F1B14;
+  font-weight: 400;
+}
+
+.wine-para {
+  font-family: "Nunito Sans";
+  font-size: 24px;
+  line-height: 36px;
+  color: #7B6B51;
+  margin-top: 36px;
+  margin-bottom: 60px;
+  width: 720px;
+}
+
+.about-us-container1 {
+  padding: 120px 130px;
+}
+
+.wine-text1 {
+  font-size: 64px;
+  line-height: 76.8px;
+  font-family: "Gin";
+  color: #1F1B14;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.wine-para1 {
+  font-family: "Nunito Sans";
+  font-size: 20px;
+  line-height: 32px;
+  color: #7B6B51;
+  margin-top: 36px;
+  width: 400px;
+}
+
+.about-us-gap {
+  margin-left: 40px;
+}
+
+
+.horizon-container {
+  padding: 120px 100px;
+  background-color:whitesmoke;
+}
+
+.horizon-wrapper {
+  background-color: #FFFFFF;
+  padding: 28px;
+  margin-left: 24px;
+}
+
+.horizon-text {
+  font-size: 40px;
+  line-height: 56px;
+  font-family: "Gin";
+  color: #1F1B14;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.horizon-para {
+  font-size: 18px;
+  line-height: 28px;
+  font-family: "Nunito Sans";
+  color: #7B6B51;
+  font-weight: 400;
+  margin-top: 24px;
+}
+
+.footer-container {
+  background-color: #5C503D;
+  padding: 120px;
+}
+
+.footer-para {
+  font-size: 20px;
+  line-height: 28px;
+  font-family: "Nunito Sans";
+  color: #FFFFFF;
+  font-weight: 400;
+  margin-top: 40px;
+}
+
+.footer-link {
+  font-size: 18px;
+  line-height: 24px;
+  font-family: "Nunito Sans";
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.footer-text {
+  font-size: 24px;
+  line-height: 36px;
+  font-family: "Gin";
+  color: #FFFFFF;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+// .footer-gap {
+//   margin-left: 100px;
+// }
+
+.hand {
+  cursor: pointer;
+}
+
+.wine-textforRevisit {
+    font-size: 80px;
+    line-height: 96px;
+    font-family: Bebas Neue;
+    color: #fefefe;
+    font-weight: 400;
+}
+
+.main-feature-content {
+    font-family: Nunito Sans;
+    font-size: 18px;
+    color: #c0beb9;
+}
+
+
+.git-in-touch .form-group .form-control {
+    border: none;
+    border-bottom: 2px solid;
+    border-radius: 5px;
+    font-weight: 300;
+    padding: 10px 20px;
+    margin-bottom: 1.5em;
+}
+
+
+.regUser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-colord{
+    color: #000;
+    background-color: #f0f0f0 !important;
+    font-family: Plus Jakarta Sans !important;
+    border: none;
+    padding: 10px 20px;
+}
+
+
+.radius{
+    border-radius: 16px;
+}
+
+.insta{
+    width: 100%;
+    max-height: 192px;
+    border-radius: 16px;
+}
+
+
+.video-js {
+    border-radius: 15px;
+}
+
+.horizon-container {
+    padding: 120px 100px;
+    background-color: #f5f5f5;
+}
+
+.cardHeight{
+    max-height: 550px;
+    min-height: 550px;
+}
+.card {
+    width: 100%;
+    text-align: center;
+}
+.slide{
+    padding: 10px;
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+}
+
+.insta-para {
+    font-size: 14px;
+    line-height: 23px;
+    font-family: Nunito Sans;
+    color: #7b6b51;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.carousel {
+    width: 80%;
+    margin: auto;
+}
+.carousel .slick-next, .carousel .slick-prev {
+    color: #189976 !important;
+    background-color: #5c503d !important;
+    border-radius: 52%;
+}
+.vine-title {
+    font-family: cursive;
+}
+
+::ng-deep .slick-prev,
+::ng-deep .slick-next {
+  color: #189976 !important;
+  background-color: #5c503d;
+  // background-color: black;
+  border-radius: 50%;
+  // width: 40px;
+  // height: 40px;
+  display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+
+::ng-deep .slick-prev:hover,
+::ng-deep .slick-next:hover {
+  background-color: #5c503d;
+
+}
+
+.cardWidth{
+    max-height: 356px;
+    min-height: 356px;
+}
+
+
+
+/* Responsive Styles */
+
+/* Mobile (max-width: 576px) */
+@media (max-width: 576px) {
+  .nav-bar-conatiner {
+    padding: 40px 8px;
+  }
+
+  .nav-active,
+  .nav-disabled {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .about-us-container,
+  .about-container,
+  .follow-container,
+  .footer-container,
+  .horizon-container {
+    padding: 40px 30px;
+  }
+
+  .journey-text,
+  .wine-text,
+  .wine-text1,
+  .horizon-text,
+  .footer-text {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .para-text,
+  .wine-para,
+  .wine-para1,
+  .horizon-para,
+  .footer-para,
+  .follow-para {
+    font-size: 16px;
+    line-height: 24px;
+    width: 100%; /* Full width for better readability */
+  }
+
+  .about-img,
+  .about-us-img,
+  .insta {
+    width: 100%;
+    margin-left: 0;
+    border-radius: 8px;
+  }
+
+  .follow-wrapper {
+    min-height: auto;
+    padding: 20px;
+    margin-left: 0;
+  }
+
+  .carousel {
+    width: 100%;
+  }
+
+  .cardHeight,
+  .cardWidth {
+    max-height: auto;
+    min-height: auto;
+  }
+
+  .btn-colord {
+    padding: 8px 16px;
+  }
+}
+
+/* Tablet (min-width: 577px and max-width: 768px) */
+@media (max-width: 768px) {
+  .nav-bar-conatiner {
+    padding: 30px 16px;
+  }
+
+  .nav-active,
+  .nav-disabled {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .about-us-container,
+  .about-container,
+  .follow-container,
+  .footer-container,
+  .horizon-container {
+    padding: 40px 20px;
+  }
+
+  .journey-text,
+  .wine-text,
+  .wine-text1,
+  .horizon-text,
+  .footer-text {
+    font-size: 30px;
+    line-height: 30px;
+  }
+
+  .para-text,
+  .wine-para,
+  .wine-para1,
+  .horizon-para,
+  .footer-para,
+  .follow-para {
+    font-size: 18px;
+    line-height: 28px;
+    width: 100%; /* Adjust width for better spacing */
+  }
+
+  // .about-img,
+  // .about-us-img,
+  // .insta {
+  //   width: 80%;
+  //   margin-left: 10%;
+  // }
+
+  .follow-wrapper {
+    padding: 28px;
+    margin-left: 10px;
+  }
+
+  .carousel {
+    width: 100%;
+  }
+
+  .cardHeight,
+  .cardWidth {
+    max-height: 400px;
+    min-height: 400px;
+  }
+}
+
+
+@media (max-width: 576px) {
+    .wine-text {
+        font-size: 32px;
+        line-height: 38.4px;
+    }
+}
+.cardHeight {
+    max-height: 550px;
+    min-height: 550px;
+}
+
+
+
+@media (max-width: 992px) {
+  .nav-bar-conatiner {
+    padding: 20px 8px;
+  }
+
+  .nav-active,
+  .nav-disabled {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .about-us-container,
+  .about-container,
+  .follow-container,
+  .footer-container,
+  .horizon-container {
+    padding: 60px 30px; /* Reduced padding */
+  }
+
+  .journey-text,
+  .wine-text,
+  .wine-text1,
+  .horizon-text,
+  .footer-text {
+    font-size: 48px;
+    line-height: 56px; /* Scaled-down font sizes */
+  }
+
+  .para-text,
+  .wine-para,
+  .wine-para1,
+  .horizon-para,
+  .footer-para,
+  .follow-para {
+    font-size: 20px;
+    line-height: 30px;
+    width: 100%; /* Full width for better responsiveness */
+  }
+
+  .about-img,
+  .about-us-img,
+  .insta {
+    width: 80%;
+    margin-left: 10%; /* Center-align images */
+    border-radius: 12px;
+  }
+
+  .follow-wrapper {
+    padding: 20px;
+    margin-left: 0;
+    min-height: auto;
+  }
+
+  .carousel {
+    width: 100%; /* Full-width carousel */
+  }
+
+  .cardHeight,
+  .cardWidth {
+    max-height: 400px;
+    min-height: 400px;
+  }
+
+  .btn-colord {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+
+  .footer-link {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 10px;
+  }
+
+  .hand {
+    font-size: 16px;
+  }
+
+  .horizon-wrapper {
+    padding: 20px;
+    margin-left: 0;
+  }
+
+  .git-in-touch .form-group .form-control {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
