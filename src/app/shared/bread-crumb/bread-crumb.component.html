@@ -1,0 +1,31 @@
+<div class="breadcrumb-container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="index.html">Home</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="bhubaneswar.html">Bhubaneswar</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Hotel Sai Nath & Sai Restaurant
+      </li>
+    </ol>
+  </nav>
+</div>
+
+<!-- <nav aria-label="breadcrumb" class="breadcrumb-container">
+  <ol class="breadcrumb">
+    <li
+      class="breadcrumb-item"
+      *ngFor="let breadcrumb of breadcrumbs; let last = last"
+      [class.active]="last"
+      [attr.aria-current]="last ? 'page' : null"
+    >
+      <ng-container *ngIf="!last">
+        <a [routerLink]="breadcrumb.link">{{ breadcrumb.name }}</a>
+      </ng-container>
+      <ng-container *ngIf="last">{{ breadcrumb.name }}</ng-container>
+    </li>
+  </ol>
+</nav> -->

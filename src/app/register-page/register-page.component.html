@@ -8,16 +8,28 @@
           Ultimate food delivery, serving mouthwatering dishes to your doorstep
           instantly!
         </p>
-        <form class="container_width">
+        <form
+          [formGroup]="registerForm"
+          (ngSubmit)="signUp()"
+          class="container_width"
+        >
           <input
             type="email"
             class="form-input"
             placeholder="Enter your Email"
+            formControlName="email"
+          />
+          <input
+            type="email"
+            class="form-input"
+            placeholder="Enter your password"
+            formControlName="password"
           />
           <input
             type="text"
             class="form-input"
             placeholder="Share your Phone number"
+            formControlName="phone"
           />
           <div class="input-group mb-3">
             <input
@@ -25,6 +37,7 @@
               class="form-control"
               placeholder="Add your Address"
               aria-label="Add your Address"
+              formControlName="address"
             />
             <span class="input-group-text bg-transparent imgBorder">
               <img
@@ -35,7 +48,7 @@
             </span>
           </div>
 
-          <button type="button" class="btn btn-custom">Register now</button>
+          <button type="submit" class="btn btn-custom">Register now</button>
         </form>
         <!-- style="font-size: 0.8rem; color: #888" -->
         <p class="container_width mt-3">

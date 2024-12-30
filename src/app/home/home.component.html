@@ -54,8 +54,8 @@
     </div>
   </div>
 </div>
-<!-- <div class="dish_section">
-  <div class="container py-5">
+<div class="dish_section">
+  <div class="dish_container py-5">
     <h2 class="section-title">What's on your mind?</h2>
     <div class="row justify-content-center g-4">
       <div class="col-6 col-sm-4 col-md-3 col-lg-1 text-center">
@@ -168,7 +168,7 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>
 <!-- slider Section -->
 <!-- <ngx-slick-carousel #slickCarousel class="carousel" [config]="slideConfig">
   <div class="resturant_section">
@@ -200,28 +200,67 @@
     </div>
   </div>
 </ngx-slick-carousel> -->
-<!-- <ngx-slick-carousel #slickCarousel class="carousel" [config]="slideConfig">
-  <div ngxSlickItem *ngFor="let item of restaurants" class="slide">
-    <div class="restaurant-card">
-      <img [src]="item.image" alt="Restaurant Image" />
-      <h5 class="restaurant-name">{{ item.name }}</h5>
-      <div class="restaurant-details d-flex align-items-center">
-        <img
-          src="/assets/Images/star.png"
-          alt="Star"
-          style="width: 16px; height: 16px; margin-right: 4px"
-        />
-        <span class="rating_color">{{ item.rating }}</span>
-        <span class="rating_color">• {{ item.time }}</span>
+<section class="py-5">
+  <div class="bestOpSection">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="fw-bold mb-0">Best options close to you</h3>
+      <div>
+        <!-- Navigation Buttons -->
+        <button class="btn rounded-circle me-1" (click)="navigatePrev()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-arrow-left-circle"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+            />
+          </svg>
+        </button>
+        <button class="btn rounded-circle" (click)="navigateNext()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-arrow-right-circle"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+            />
+          </svg>
+        </button>
       </div>
-      <p class="dishDetails">
-        {{ item.details }}<br />
-        {{ item.location }}
-      </p>
     </div>
+    <ngx-slick-carousel #slickCarousel class="carousel" [config]="slideConfig">
+      <div ngxSlickItem *ngFor="let item of restaurants" class="slide">
+        <div class="restaurant-card">
+          <img [src]="item.image" alt="Restaurant Image" />
+          <h5 class="restaurant-name">{{ item.name }}</h5>
+          <div class="restaurant-details d-flex align-items-center">
+            <img
+              src="/assets/Images/star.png"
+              alt="Star"
+              style="width: 16px; height: 16px; margin-right: 4px"
+            />
+            <span class="rating_color">{{ item.rating }}</span>
+            <span class="rating_color">• {{ item.time }}</span>
+          </div>
+          <p class="dishDetails">
+            {{ item.details }}<br />
+            {{ item.location }}
+          </p>
+        </div>
+      </div>
+    </ngx-slick-carousel>
   </div>
-</ngx-slick-carousel> -->
-
+</section>
 <!-- <div class="dish_section">
   <div class="section-container">
     <h2 class="section-title">What's on your mind?</h2>
@@ -285,8 +324,8 @@
     </div>
   </div>
 </div> -->
-<!-- <div class="resturant_section">
-  <div class="container py-5">
+<div class="resturant_section">
+  <div class="dish_container py-5">
     <h2 class="section-title">
       Restaurants with online food delivery in Bhubaneswar
     </h2>
@@ -734,6 +773,6 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>
 <!-- footer section -->
-<!-- <app-footer></app-footer> -->
+<app-footer></app-footer>

@@ -1,0 +1,47 @@
+<app-navbar></app-navbar> <app-bread-crumb></app-bread-crumb>
+<div class="info_div">
+  <div class="restaurant-info-container">
+    <div class="details">
+      <div class="rating">
+        <img
+          src="../../assets/Images/star.png"
+          alt="Star Icon"
+          class="star-icon"
+        />
+        <span>4.3</span>
+        <span>(913 ratings)</span>
+        <span>• ₹200 for two</span>
+      </div>
+      <h1 class="restaurant-name mt-3 mb-3">Hotel Sai Nath & Sai Restaurant</h1>
+      <div class="info_tags">
+        <span class="info_tag" *ngFor="let tag of tags">{{ tag }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Menu section -->
+
+<div class="menu-section text-center py-5">
+  <h2 class="menu-title mb-4">Menu</h2>
+  <div class="search-container mx-auto">
+    <div class="input-group">
+      <span class="input-group-text">
+        <img src="../../assets/Images/Vector_search.png" alt="Search Icon" />
+      </span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search for any dishes you want"
+        aria-label="Search"
+      />
+    </div>
+  </div>
+
+  <div class="tags mt-4">
+    <span class="badge rounded-pill tag">Spicy Delights</span>
+    <span class="badge rounded-pill tag">Vegetarian Options</span>
+    <span class="badge rounded-pill tag">Tandoori Specialties</span>
+    <span class="badge rounded-pill tag">Dessert Delicacies</span>
+    <span class="badge rounded-pill tag">Street Food Favorites</span>
+  </div>
+</div>

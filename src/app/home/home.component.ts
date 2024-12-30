@@ -1,14 +1,14 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { SlickCarouselComponent } from 'ngx-slick-carousel';
+import { HttpClient } from "@angular/common/http";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { SlickCarouselComponent } from "ngx-slick-carousel";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrl: "./home.component.scss",
 })
 export class HomeComponent implements OnInit {
-  @ViewChild('slickCarousel', { static: false })
+  @ViewChild("slickCarousel", { static: false })
   slickCarousel!: SlickCarouselComponent;
   constructor(private http: HttpClient) {}
   // slideConfig = {
@@ -43,93 +43,96 @@ export class HomeComponent implements OnInit {
   // };
   restaurants = [
     {
-      image: '../../assets/Images/graphics (1).png',
-      name: 'Chinese Wok',
-      rating: '4.3',
-      time: '35-40 mins',
-      details: 'Chinese, Asian, Tibetan, Desserts',
-      location: 'Adigodi',
+      image: "../../assets/Images/graphics (1).png",
+      name: "Chinese Wok",
+      rating: "4.3",
+      time: "35-40 mins",
+      details: "Chinese, Asian, Tibetan, Desserts",
+      location: "Adigodi",
     },
     {
-      image: '../../assets/Images/graphics (1).png',
-      name: 'Chinese Wok',
-      rating: '4.3',
-      time: '35-40 mins',
-      details: 'Chinese, Asian, Tibetan, Desserts',
-      location: 'Adigodi',
+      image: "../../assets/Images/graphics (1).png",
+      name: "Chinese Wok",
+      rating: "4.3",
+      time: "35-40 mins",
+      details: "Chinese, Asian, Tibetan, Desserts",
+      location: "Adigodi",
     },
     {
-      image: '../../assets/Images/graphics (1).png',
-      name: 'Chinese Wok',
-      rating: '4.3',
-      time: '35-40 mins',
-      details: 'Chinese, Asian, Tibetan, Desserts',
-      location: 'Adigodi',
+      image: "../../assets/Images/graphics (1).png",
+      name: "Chinese Wok",
+      rating: "4.3",
+      time: "35-40 mins",
+      details: "Chinese, Asian, Tibetan, Desserts",
+      location: "Adigodi",
     },
     {
-      image: '../../assets/Images/graphics (1).png',
-      name: 'Chinese Wok',
-      rating: '4.3',
-      time: '35-40 mins',
-      details: 'Chinese, Asian, Tibetan, Desserts',
-      location: 'Adigodi',
+      image: "../../assets/Images/graphics (1).png",
+      name: "Chinese Wok",
+      rating: "4.3",
+      time: "35-40 mins",
+      details: "Chinese, Asian, Tibetan, Desserts",
+      location: "Adigodi",
     },
     {
-      image: '../../assets/Images/graphics (1).png',
-      name: 'Chinese Wok',
-      rating: '4.3',
-      time: '35-40 mins',
-      details: 'Chinese, Asian, Tibetan, Desserts',
-      location: 'Adigodi',
+      image: "../../assets/Images/graphics (1).png",
+      name: "Chinese Wok",
+      rating: "4.3",
+      time: "35-40 mins",
+      details: "Chinese, Asian, Tibetan, Desserts",
+      location: "Adigodi",
     },
     {
-      image: '../../assets/Images/graphics (1).png',
-      name: 'Chinese Wok',
-      rating: '4.3',
-      time: '35-40 mins',
-      details: 'Chinese, Asian, Tibetan, Desserts',
-      location: 'Adigodi',
+      image: "../../assets/Images/graphics (1).png",
+      name: "Chinese Wok",
+      rating: "4.3",
+      time: "35-40 mins",
+      details: "Chinese, Asian, Tibetan, Desserts",
+      location: "Adigodi",
     },
     {
-      image: '../../assets/Images/graphics (1).png',
-      name: 'Chinese Wok',
-      rating: '4.3',
-      time: '35-40 mins',
-      details: 'Chinese, Asian, Tibetan, Desserts',
-      location: 'Adigodi',
+      image: "../../assets/Images/graphics (1).png",
+      name: "Chinese Wok",
+      rating: "4.3",
+      time: "35-40 mins",
+      details: "Chinese, Asian, Tibetan, Desserts",
+      location: "Adigodi",
     },
     {
-      image: '../../assets/Images/graphics (1).png',
-      name: 'Chinese Wok',
-      rating: '4.3',
-      time: '35-40 mins',
-      details: 'Chinese, Asian, Tibetan, Desserts',
-      location: 'Adigodi',
+      image: "../../assets/Images/graphics (1).png",
+      name: "Chinese Wok",
+      rating: "4.3",
+      time: "35-40 mins",
+      details: "Chinese, Asian, Tibetan, Desserts",
+      location: "Adigodi",
     },
     {
-      image: '../../assets/Images/graphics (1).png',
-      name: 'Chinese Wok',
-      rating: '4.3',
-      time: '35-40 mins',
-      details: 'Chinese, Asian, Tibetan, Desserts',
-      location: 'Adigodi',
+      image: "../../assets/Images/graphics (1).png",
+      name: "Chinese Wok",
+      rating: "4.3",
+      time: "35-40 mins",
+      details: "Chinese, Asian, Tibetan, Desserts",
+      location: "Adigodi",
     },
     {
-      image: '../../assets/Images/graphics (1).png',
-      name: 'Chinese Wok',
-      rating: '4.3',
-      time: '35-40 mins',
-      details: 'Chinese, Asian, Tibetan, Desserts',
-      location: 'Adigodi',
+      image: "../../assets/Images/graphics (1).png",
+      name: "Chinese Wok",
+      rating: "4.3",
+      time: "35-40 mins",
+      details: "Chinese, Asian, Tibetan, Desserts",
+      location: "Adigodi",
     },
   ];
   ngOnInit(): void {}
   slideConfig = {
     slidesToShow: 3,
     slidesToScroll: 1,
-    nextArrow:
-      '<button class="slick-next" style="color: red !important">Next</button>',
-    prevArrow: '<button class="slick-prev">Prev</button>',
+    centerMode: true,
+    centerPadding: "20px",
+    arrows: false,
+    // nextArrow:
+    //   '<button class="slick-next" style="color: red !important">Next</button>',
+    // prevArrow: '<button class="slick-prev">Prev</button>',
     responsive: [
       {
         breakpoint: 1024,
@@ -160,4 +163,12 @@ export class HomeComponent implements OnInit {
       },
     ],
   };
+
+  navigatePrev() {
+    this.slickCarousel.slickPrev();
+  }
+
+  navigateNext() {
+    this.slickCarousel.slickNext();
+  }
 }

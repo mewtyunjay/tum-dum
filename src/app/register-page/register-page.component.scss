@@ -8,28 +8,26 @@
 }
 
 // width
-.container_width{
+.container_width {
   width: 75% !important;
 }
 
-.left_margin{
+.left_margin {
   margin-left: 10%;
-
 }
 
-
-.img_width{
+.img_width {
   width: 70%;
 }
 
-.font{
+.font {
   font-size: 18px;
 }
-.fontfor_terms{
+.fontfor_terms {
   font-size: 14px;
   font-weight: 400px;
   line-height: 19.6px;
-  color: #C2C2C2;
+  color: #c2c2c2;
 }
 
 /* Left Section Styles */
@@ -108,8 +106,6 @@ p {
   padding-right: 1rem;
 }
 
-
-
 /* Mobile-Friendly Adjustments */
 @media (max-width: 768px) {
   .container-fluid {
@@ -147,20 +143,17 @@ p {
     padding: 0.3rem 0.8rem;
   }
 
-  .container_width{
-  width: 100% !important;
-}
-.left_margin{
-  margin-left: 0;
+  .container_width {
+    width: 100% !important;
+  }
+  .left_margin {
+    margin-left: 0;
+  }
 
+  .img_width {
+    width: auto;
+  }
 }
-
-.img_width{
-  width: auto;
-}
-}
-
-
 
 @media (max-width: 480px) {
   h1 {
@@ -180,53 +173,51 @@ p {
     font-size: 0.8rem;
   }
 
-  .container_width{
-  width: 100% !important;
+  .container_width {
+    width: 100% !important;
+  }
+  .left_margin {
+    margin-left: 0;
+  }
+  .img_width {
+    width: auto;
+  }
 }
-.left_margin{
-  margin-left: 0;
 
+.input-group .form-control {
+  background: transparent;
+  // border: 1px solid #555;
+  // border-right:  0 dashed;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  color: #fff;
+  font-size: 1rem;
+  border-top: 1px solid #555;
+  border-right: 0 solid #555;
+  border-bottom: 1px solid #555;
+  border-left: 1px solid #555;
 }
-.img_width{
-  width: auto;
+
+.input-group .form-control::placeholder {
+  color: #aaa;
 }
+
+/* Icon container styling */
+// .input-group-text {
+//   background: transparent;
+//   border: none;
+//   padding-right: 1rem;
+// }
+
+.input-group-text img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
 }
 
-
- .input-group .form-control {
-      background: transparent;
-      // border: 1px solid #555;
-      // border-right:  0 dashed;
-      border-radius: 8px;
-      padding: 0.8rem 1rem;
-      color: #fff;
-      font-size: 1rem;
-      border-top:    1px solid  #555;
-border-right:  0 solid #555;
-border-bottom: 1px solid #555;
-border-left:   1px solid  #555;
-    }
-
-    .input-group .form-control::placeholder {
-      color: #aaa;
-    }
-
-    /* Icon container styling */
-    // .input-group-text {
-    //   background: transparent;
-    //   border: none;
-    //   padding-right: 1rem;
-    // }
-
-    .input-group-text img {
-      width: 20px;
-      height: 20px;
-      opacity: 0.6;
-    }
-
-    .imgBorder{
-          border-top:    1px solid  #555;
-border-right:  1px solid #555;
-border-bottom: 1px solid #555;
-border-left:  0 solid  #555;
-    }
+.imgBorder {
+  border-top: 1px solid #555;
+  border-right: 1px solid #555;
+  border-bottom: 1px solid #555;
+  border-left: 0 solid #555;
+}
