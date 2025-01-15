@@ -1,6 +1,6 @@
 /* Custom Navbar Styles */
 .navbar {
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   padding: 1.5rem 4.5rem;
 }
 
@@ -44,7 +44,7 @@
 .bannerSection {
   margin: 0;
   padding: 0;
-  background-color: #0c0c0c;
+  background-color: #ffffff;
   font-family: Arial, sans-serif;
 }
 .bestOpSection {
@@ -69,7 +69,7 @@
   // max-width: 500px;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .banner img {
@@ -92,7 +92,7 @@
 
 //dish_section
 .dish_section {
-  background-color: #0c0c0c;
+  background-color: #ffffff;
   color: #fff;
   font-family: Arial, sans-serif;
 }
@@ -101,6 +101,7 @@
   margin: 0 2% 0 2%;
 }
 .section-title {
+  color: #0a0a0a;
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 2rem;
@@ -111,14 +112,15 @@
   height: auto;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .icon-item p {
   font-size: 0.9rem;
   margin: 0.5rem 0 0;
-  color: #ccc;
+  color: #424242;
   text-align: center;
+  // font-weight: bold;
 }
 
 @media (max-width: 768px) {
@@ -234,6 +236,25 @@
   color: #1c1c1c;
 }
 
+.add-button {
+  margin-top: 12px;
+}
+
+.add-button .btn {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-button .btn:hover {
+  background-color: #0056b3;
+}
 .dishDetails {
   font-size: 0.9rem;
   line-height: 1.4;
@@ -245,4 +266,86 @@
 
 .slide {
   padding: 10px; /* Adjusts spacing between slides */
+}
+
+// .restaurant-card {
+//   border: 1px solid #e0e0e0;
+//   border-radius: 8px;
+//   padding: 16px;
+//   background-color: #fff;
+//   text-align: center;
+// }
+
+.image-container {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+// .restaurant-image {
+//   width: 100%;
+//   height: auto;
+//   border-radius: 8px;
+// }
+
+.add-button {
+  position: absolute;
+  top: 60%;
+  right: 8px;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #ffffff;
+  border-radius: 40%;
+  padding: 2px 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #00008b;
+  color: #fff;
+}
+
+// .restaurant-name {
+//   font-size: 18px;
+//   font-weight: bold;
+//   margin: 8px 0;
+// }
+
+// .restaurant-details {
+//   font-size: 14px;
+//   margin-bottom: 8px;
+// }
+
+// .rating_color {
+//   color: #ff9800;
+//   font-weight: bold;
+//   margin-right: 8px;
+// }
+
+// .dishDetails {
+//   font-size: 14px;
+//   color: #757575;
+//   margin: 8px 0;
+// }
+
+.carousel {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.ngx-slick-carousel {
+  overflow: visible !important; /* Prevent clipping */
+  position: relative;
+}
+
+.btn-prev,
+.btn-next {
+  z-index: 100; /* Ensure they are above other elements */
+}
+
+.btn:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
 }

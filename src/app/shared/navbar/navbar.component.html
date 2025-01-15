@@ -1,16 +1,20 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <!-- Left Section (Logo + Address) -->
     <div class="d-flex align-items-center">
       <!-- Logo -->
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="../../assets/Images/Frame 5.png" alt="Logo" width="24" />
+        <img
+          src="../../../assets/Images/Tumdum-Logo03-Black 1.png"
+          alt="Logo"
+          width="40"
+        />
       </a>
       <!-- Location Bar -->
-      <div class="d-lg-flex location-bar align-items-center">
+      <!-- <div class="d-lg-flex location-bar align-items-center">
         <img src="../../assets/Images/location-arrow.png" alt="Location Icon" />
         <span class="nav-text ms-2">Kalyan Vihar, Railway Colony, Ma...</span>
-      </div>
+      </div> -->
     </div>
 
     <!-- Toggle Button for Mobile -->
@@ -33,8 +37,12 @@
     >
       <ul class="navbar-nav align-items-center">
         <!-- Search -->
-        <li class="nav-item">
-          <a class="nav-link d-flex align-items-center" href="#">
+        <li class="nav-item hand">
+          <a
+            class="nav-link d-flex align-items-center"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
             <img src="../../assets/Images/search.png" alt="Search Icon" />
             <span class="ms-2">Search</span>
           </a>
@@ -57,3 +65,52 @@
     </div>
   </div>
 </nav>
+
+<!-- //searchbar -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title fs-5" id="exampleModalLabel">
+          Search anything....
+        </h3>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group radius">
+          <input
+            type="search"
+            class="form-control"
+            placeholder="Search biryani, mocktail etc..."
+            aria-label="Search"
+          />
+          <span class="input-group-text back_color">
+            <img
+              src="../../assets/Images/Vector_search.png"
+              alt="Search Icon"
+            />
+          </span>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>

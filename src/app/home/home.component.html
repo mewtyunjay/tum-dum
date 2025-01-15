@@ -45,20 +45,73 @@
   <div class="banner-container">
     <!-- Banner 1 -->
     <div class="banner">
-      <img src="../../assets/Images/banner (1).png" alt="Banner 1" />
+      <img src="../../assets/Images/banner (5).png" alt="Banner 1" />
     </div>
 
     <!-- Banner 2 -->
-    <div class="banner">
+    <!-- <div class="banner">
       <img src="../../assets/Images/banner (2).png" alt="Banner 2" />
-    </div>
+    </div> -->
   </div>
 </div>
 <div class="dish_section">
-  <div class="dish_container py-5">
-    <h2 class="section-title">What's on your mind?</h2>
+  <div class="dish_container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="section-title">What's on your mind?</h2>
+      <div>
+        <!-- Navigation Buttons -->
+        <button class="btn rounded-circle me-1" (click)="slickPrev()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-arrow-left-circle"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+            />
+          </svg>
+        </button>
+        <button
+          class="btn rounded-circle"
+          style="position: relative; z-index: 10"
+          (click)="slickNext()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-arrow-right-circle"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
     <div class="row justify-content-center g-4">
-      <div class="col-6 col-sm-4 col-md-3 col-lg-1 text-center">
+      <ngx-slick-carousel
+        #slickCarousel2
+        class="carousel"
+        [config]="slideConfig2"
+      >
+        <div ngxSlickItem *ngFor="let item of cuisinesList" class="slide">
+          <!-- <div class="col-6 col-sm-4 col-md-3 col-lg-1 text-center"> -->
+          <div class="icon-item">
+            <img [src]="item?.image" alt="Asian" />
+            <p>{{ item.item_text }}</p>
+          </div>
+        </div>
+        <!-- </div> -->
+      </ngx-slick-carousel>
+      <!-- <div class="col-6 col-sm-4 col-md-3 col-lg-1 text-center">
         <div class="icon-item">
           <img
             src="../../assets/Images/sushi in a round plate top view only.png "
@@ -66,8 +119,8 @@
           />
           <p>Asian</p>
         </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-3 col-lg-1 text-center">
+      </div> -->
+      <!-- <div class="col-6 col-sm-4 col-md-3 col-lg-1 text-center">
         <div class="icon-item">
           <img
             src="../../assets/Images/a nice dish from top view.png"
@@ -165,7 +218,7 @@
           />
           <p>Thai</p>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -240,7 +293,7 @@
     </div>
     <ngx-slick-carousel #slickCarousel class="carousel" [config]="slideConfig">
       <div ngxSlickItem *ngFor="let item of restaurants" class="slide">
-        <div class="restaurant-card">
+        <!-- <div class="restaurant-card">
           <img [src]="item.image" alt="Restaurant Image" />
           <h5 class="restaurant-name">{{ item.name }}</h5>
           <div class="restaurant-details d-flex align-items-center">
@@ -251,6 +304,30 @@
             />
             <span class="rating_color">{{ item.rating }}</span>
             <span class="rating_color">• {{ item.time }}</span>
+          </div>
+          <p class="dishDetails">
+            {{ item.details }}<br />
+            {{ item.location }}
+          </p>
+        </div> -->
+        <div class="restaurant-card">
+          <div class="image-container">
+            <img
+              [src]="item.image"
+              alt="Restaurant Image"
+              class="restaurant-image"
+            />
+            <button (click)="addItem()" class="add-button">ADD +</button>
+          </div>
+          <h5 class="restaurant-name">{{ item.name }}</h5>
+          <div class="restaurant-details d-flex align-items-center">
+            <img
+              src="../../assets/Images/star.png"
+              alt="Star"
+              style="width: 16px; height: 16px; margin-right: 4px"
+            />
+            <span class="rating_color">{{ item.rating }}</span>
+            <span class="rating_color">• 1{{ item.time }}</span>
           </div>
           <p class="dishDetails">
             {{ item.details }}<br />
@@ -332,25 +409,47 @@
     <div class="row g-4">
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
         <div class="restaurant-card">
-          <img
-            src="../../assets/Images/graphics (1).png"
-            alt="Restaurant Image"
-          />
-          <h5 class="restaurant-name">Chinese Wok</h5>
+          <div class="image-container">
+            <img
+              src="../../assets/Images/e5491f3e2656022bbd45cf43455c5e70.jpg"
+              alt="Restaurant Image"
+              class="restaurant-image"
+            />
+            <button (click)="addItem()" class="add-button">ADD +</button>
+          </div>
+          <h5 class="restaurant-name">Silver Tiger Tavern</h5>
+          <div class="restaurant-details d-flex align-items-center">
+            <p>
+              <img
+                src="../../assets/Images/tachometer-fast.png"
+                alt="Star"
+                style="width: 16px; height: 16px; margin-right: 4px"
+              />
+              15 mins<br />
+              <span class="dishDetails">Chinese, Asian, Tibetan, Desserts</span>
+            </p>
+          </div>
+        </div>
+      </div>
 
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="restaurant-card">
+          <img
+            src="../../assets/Images/graphics (1).png"
+            alt="Restaurant Image"
+          />
+          <h5 class="restaurant-name">Chinese Wok</h5>
           <div class="restaurant-details d-flex align-items-center">
-            <img
-              src="../../assets/Images/star.png"
-              alt="Star"
-              style="width: 16px; height: 16px; margin-right: 4px"
-            />
-            <span class="rating_color">4.3</span>
-            <span class="rating_color">• 35-40 mins</span>
+            <p>
+              <img
+                src="../../assets/Images/tachometer-fast.png"
+                alt="Star"
+                style="width: 16px; height: 16px; margin-right: 4px"
+              />
+              15 mins<br />
+              <span class="dishDetails">Chinese, Asian, Tibetan, Desserts</span>
+            </p>
           </div>
-          <p class="dishDetails">
-            Chinese, Asian, Tibetan, Desserts<br />
-            Adigodi
-          </p>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -361,18 +460,16 @@
           />
           <h5 class="restaurant-name">Chinese Wok</h5>
           <div class="restaurant-details d-flex align-items-center">
-            <img
-              src="../../assets/Images/star.png"
-              alt="Star"
-              style="width: 16px; height: 16px; margin-right: 4px"
-            />
-            <span class="rating_color">4.3</span>
-            <span class="rating_color">• 35-40 mins</span>
+            <p>
+              <img
+                src="../../assets/Images/tachometer-fast.png"
+                alt="Star"
+                style="width: 16px; height: 16px; margin-right: 4px"
+              />
+              15 mins<br />
+              <span class="dishDetails">Chinese, Asian, Tibetan, Desserts</span>
+            </p>
           </div>
-          <p class="dishDetails">
-            Chinese, Asian, Tibetan, Desserts<br />
-            Adigodi
-          </p>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -383,18 +480,16 @@
           />
           <h5 class="restaurant-name">Chinese Wok</h5>
           <div class="restaurant-details d-flex align-items-center">
-            <img
-              src="../../assets/Images/star.png"
-              alt="Star"
-              style="width: 16px; height: 16px; margin-right: 4px"
-            />
-            <span class="rating_color">4.3</span>
-            <span class="rating_color">• 35-40 mins</span>
+            <p>
+              <img
+                src="../../assets/Images/tachometer-fast.png"
+                alt="Star"
+                style="width: 16px; height: 16px; margin-right: 4px"
+              />
+              15 mins<br />
+              <span class="dishDetails">Chinese, Asian, Tibetan, Desserts</span>
+            </p>
           </div>
-          <p class="dishDetails">
-            Chinese, Asian, Tibetan, Desserts<br />
-            Adigodi
-          </p>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -405,18 +500,16 @@
           />
           <h5 class="restaurant-name">Chinese Wok</h5>
           <div class="restaurant-details d-flex align-items-center">
-            <img
-              src="../../assets/Images/star.png"
-              alt="Star"
-              style="width: 16px; height: 16px; margin-right: 4px"
-            />
-            <span class="rating_color">4.3</span>
-            <span class="rating_color">• 35-40 mins</span>
+            <p>
+              <img
+                src="../../assets/Images/tachometer-fast.png"
+                alt="Star"
+                style="width: 16px; height: 16px; margin-right: 4px"
+              />
+              15 mins<br />
+              <span class="dishDetails">Chinese, Asian, Tibetan, Desserts</span>
+            </p>
           </div>
-          <p class="dishDetails">
-            Chinese, Asian, Tibetan, Desserts<br />
-            Adigodi
-          </p>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -427,18 +520,16 @@
           />
           <h5 class="restaurant-name">Chinese Wok</h5>
           <div class="restaurant-details d-flex align-items-center">
-            <img
-              src="../../assets/Images/star.png"
-              alt="Star"
-              style="width: 16px; height: 16px; margin-right: 4px"
-            />
-            <span class="rating_color">4.3</span>
-            <span class="rating_color">• 35-40 mins</span>
+            <p>
+              <img
+                src="../../assets/Images/tachometer-fast.png"
+                alt="Star"
+                style="width: 16px; height: 16px; margin-right: 4px"
+              />
+              15 mins<br />
+              <span class="dishDetails">Chinese, Asian, Tibetan, Desserts</span>
+            </p>
           </div>
-          <p class="dishDetails">
-            Chinese, Asian, Tibetan, Desserts<br />
-            Adigodi
-          </p>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -449,18 +540,16 @@
           />
           <h5 class="restaurant-name">Chinese Wok</h5>
           <div class="restaurant-details d-flex align-items-center">
-            <img
-              src="../../assets/Images/star.png"
-              alt="Star"
-              style="width: 16px; height: 16px; margin-right: 4px"
-            />
-            <span class="rating_color">4.3</span>
-            <span class="rating_color">• 35-40 mins</span>
+            <p>
+              <img
+                src="../../assets/Images/tachometer-fast.png"
+                alt="Star"
+                style="width: 16px; height: 16px; margin-right: 4px"
+              />
+              15 mins<br />
+              <span class="dishDetails">Chinese, Asian, Tibetan, Desserts</span>
+            </p>
           </div>
-          <p class="dishDetails">
-            Chinese, Asian, Tibetan, Desserts<br />
-            Adigodi
-          </p>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -471,18 +560,16 @@
           />
           <h5 class="restaurant-name">Chinese Wok</h5>
           <div class="restaurant-details d-flex align-items-center">
-            <img
-              src="../../assets/Images/star.png"
-              alt="Star"
-              style="width: 16px; height: 16px; margin-right: 4px"
-            />
-            <span class="rating_color">4.3</span>
-            <span class="rating_color">• 35-40 mins</span>
+            <p>
+              <img
+                src="../../assets/Images/tachometer-fast.png"
+                alt="Star"
+                style="width: 16px; height: 16px; margin-right: 4px"
+              />
+              15 mins<br />
+              <span class="dishDetails">Chinese, Asian, Tibetan, Desserts</span>
+            </p>
           </div>
-          <p class="dishDetails">
-            Chinese, Asian, Tibetan, Desserts<br />
-            Adigodi
-          </p>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -493,40 +580,16 @@
           />
           <h5 class="restaurant-name">Chinese Wok</h5>
           <div class="restaurant-details d-flex align-items-center">
-            <img
-              src="../../assets/Images/star.png"
-              alt="Star"
-              style="width: 16px; height: 16px; margin-right: 4px"
-            />
-            <span class="rating_color">4.3</span>
-            <span class="rating_color">• 35-40 mins</span>
+            <p>
+              <img
+                src="../../assets/Images/tachometer-fast.png"
+                alt="Star"
+                style="width: 16px; height: 16px; margin-right: 4px"
+              />
+              <span>15 mins</span><br />
+              <span class="dishDetails">Chinese, Asian, Tibetan, Desserts</span>
+            </p>
           </div>
-          <p class="dishDetails">
-            Chinese, Asian, Tibetan, Desserts<br />
-            Adigodi
-          </p>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="restaurant-card">
-          <img
-            src="../../assets/Images/graphics (1).png"
-            alt="Restaurant Image"
-          />
-          <h5 class="restaurant-name">Chinese Wok</h5>
-          <div class="restaurant-details d-flex align-items-center">
-            <img
-              src="../../assets/Images/star.png"
-              alt="Star"
-              style="width: 16px; height: 16px; margin-right: 4px"
-            />
-            <span class="rating_color">4.3</span>
-            <span class="rating_color">• 35-40 mins</span>
-          </div>
-          <p class="dishDetails">
-            Chinese, Asian, Tibetan, Desserts<br />
-            Adigodi
-          </p>
         </div>
       </div>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -774,5 +837,6 @@
     </div>
   </div>
 </div>
+
 <!-- footer section -->
 <app-footer></app-footer>
