@@ -128,26 +128,47 @@
 
     <!-- Main Content -->
     <div class="col-md-8 col-lg-9 p-4">
-      <h4>Recommended Dishes</h4>
+      <ng-container *ngFor="let category of array.from(categoryMapper.keys())">
+        <h4>{{ category }}</h4>
 
-      <div *ngFor="let items of menuData" class="menu-item">
-        <img
-          src="{{
-            items?.itemImage ||
-              '../../assets/Images/e5491f3e2656022bbd45cf43455c5e70.jpg'
-          }}"
-          alt="Dish"
-        />
-        <div class="menu-details">
-          <strong>{{ items?.item_name }}</strong
-          ><br />
-          ₹ {{ items?.item_discounted_price }}
+        <div
+          *ngFor="let items of categoryMapper.get(category)"
+          class="menu-item"
+        >
+          <img
+            src="{{
+              items?.itemImage ||
+                '../../assets/Images/e5491f3e2656022bbd45cf43455c5e70.jpg'
+            }}"
+            alt="Dish"
+          />
+          <div class="menu-details">
+            <strong>{{ items?.item_name }}</strong
+            ><br />
+            ₹ {{ items?.item_discounted_price }}
+          </div>
+          <!-- <span class="add-btn" (click)="addToCart()">ADD +</span> -->
+          <div *ngIf="!cartItemsMapper?.get(items.id)?.quantity">
+            <button class="add-button" (click)="cartUpdate(items, 1)">
+              ADD +
+            </button>
+          </div>
+
+          <ng-container *ngIf="cartItemsMapper?.get(items.id)?.quantity">
+            <div class="quantity-container">
+              <button class="quantity-btn" (click)="cartUpdate(items, -1)">
+                -
+              </button>
+              <span class="quantity-value">{{
+                cartItemsMapper?.get(items.id)?.quantity
+              }}</span>
+              <button class="quantity-btn" (click)="cartUpdate(items, 1)">
+                +
+              </button>
+            </div>
+          </ng-container>
         </div>
-        <!-- <span class="add-btn" (click)="addToCart()">ADD +</span> -->
-        <app-quantity-selector
-          (quantityChange)="updateCart($event)"
-        ></app-quantity-selector>
-      </div>
+      </ng-container>
 
       <!-- <div class="menu-item">
         <img
@@ -229,9 +250,13 @@
 </div>
 
 <!-- notification -->
-<div id="cart-notification" class="cart-popup">
-  <span>4 items added</span>
+<div
+  *ngIf="itemsAdded && showNotification"
+  id="cart-notification"
+  class="cart-popup"
+>
+  <span>{{ itemsAdded }} items added</span>
   <a href="#" class="view-cart">View cart 🛒</a>
 </div>
 
-<app-cart-notification></app-cart-notification>
+<!-- <app-cart-notification></app-cart-notification> -->

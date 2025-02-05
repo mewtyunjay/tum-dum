@@ -26,6 +26,10 @@ export class RestaurantDetailsComponent implements OnInit {
   resId: any;
   path: any;
   resDetails: any;
+  cartItemsMapper = new Map();
+  itemsAdded: number = 0;
+  categoryMapper = new Map();
+  array = Array;
   constructor(
     // private apiService: ApiService,
     // private authService: AuthService,
@@ -65,7 +69,12 @@ export class RestaurantDetailsComponent implements OnInit {
       this.appService.getRestaurantMenuDetails(this.resId).subscribe(
         (data: any) => {
           this.menuData = data;
-
+          data?.forEach((element: any) => {
+            let elementByCategory =
+              this.categoryMapper?.get(element.categoryName) || [];
+            elementByCategory.push(element);
+            this.categoryMapper.set(element.categoryName, elementByCategory);
+          });
           console.log("getMenuData", data);
         },
         (error: any) => {
@@ -88,5 +97,39 @@ export class RestaurantDetailsComponent implements OnInit {
   updateCart(quantity: number) {
     this.cartService.addItem();
     console.log("Cart updated, Quantity:", quantity);
+  }
+
+  cartUpdate(item: any, quantity: number) {
+    if (item.resId !== this.resId) {
+      this.cartItemsMapper = new Map();
+      this.itemsAdded = 0;
+    }
+    let updatedItem = this.cartItemsMapper?.get(item.id) || item;
+    updatedItem = {
+      ...updatedItem,
+      quantity: updatedItem.quantity
+        ? +updatedItem.quantity + quantity
+        : quantity,
+    };
+    if (updatedItem.quantity) {
+      updatedItem.addedQtyPrice =
+        updatedItem.item_discounted_price * updatedItem.quantity;
+      this.cartItemsMapper.set(updatedItem.id, updatedItem);
+    } else {
+      this.cartItemsMapper.delete(updatedItem.id);
+    }
+    console.log("updatedItem", this.cartItemsMapper);
+    // this.cartService.addItem();
+    this.itemsAdded = this.itemsAdded + quantity;
+    this.showNotification = true;
+    setTimeout(() => (this.showNotification = false), 3000);
+    this.calTotalPrice();
+  }
+  calTotalPrice() {
+    let totalPrice: number = 0;
+    Array.from(this.cartItemsMapper.values()).forEach((eachItem: any) => {
+      totalPrice += eachItem?.addedQtyPrice;
+    });
+    console.log("totalPrice", totalPrice);
   }
 }
