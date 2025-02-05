@@ -1,27 +1,38 @@
-<app-navbar></app-navbar> <app-bread-crumb></app-bread-crumb>
+<app-navbar></app-navbar>
+<div class="horizontalLine d-flex">
+  <a [routerLink]="['/home']" class="go-back-btn">
+    <img src="../../assets/Images/arrow-left.png" alt="Back Arrow" />
+    Go Back
+  </a>
+</div>
 <div class="info_div">
   <div class="restaurant-info-container">
     <div class="details">
       <div class="rating">
         <img
-          src="../../assets/Images/star.png"
+          src="../../assets/Images/Vector (7).png"
           alt="Star Icon"
           class="star-icon"
         />
-        <span>4.3</span>
-        <span>(913 ratings)</span>
-        <span>• ₹200 for two</span>
+        <span>Best Recommended</span>
+        <!-- <span>(913 ratings)</span>
+        <span>• ₹200 for two</span> -->
       </div>
-      <h1 class="restaurant-name mt-3 mb-3">Hotel Sai Nath & Sai Restaurant</h1>
-      <div class="info_tags">
+      <h1 class="restaurant-name mt-3 mb-3">{{ resDetails?.res_name }}</h1>
+      <!-- <div class="info_tags">
         <span class="info_tag" *ngFor="let tag of tags">{{ tag }}</span>
+      </div> -->
+      <div>
+        <span>{{ resDetails?.address }}</span>
       </div>
     </div>
   </div>
 </div>
+<div class="horizontalLine"><hr /></div>
+
 <!-- Menu section -->
 
-<div class="menu-section text-center py-5">
+<!-- <div class="menu-section text-center py-5">
   <h2 class="menu-title mb-4">Menu</h2>
   <div class="search-container mx-auto">
     <div class="input-group">
@@ -44,9 +55,9 @@
     <span class="badge rounded-pill tag">Dessert Delicacies</span>
     <span class="badge rounded-pill tag">Street Food Favorites</span>
   </div>
-</div>
+</div> -->
 <!-- deals for you -->
-<div class="deals-section py-5">
+<!-- <div class="deals-section py-5">
   <div class="container">
     <h2 class="section-title mb-4">Deals for you</h2>
     <div class="deals-container d-flex align-items-center">
@@ -84,4 +95,143 @@
       </button>
     </div>
   </div>
+</div> -->
+
+<!-- MenuList -->
+
+<div class="horizontalLine container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-4 col-lg-3 sidebar d-none d-md-block">
+      <div class="d-flex">
+        <input
+          type="text"
+          class="form form-control"
+          placeholder="Search for any dishes..."
+        />
+        <span class="custom-padding">
+          <img src="../../assets/Images/Vector_search.png" alt="Search Icon" />
+        </span>
+      </div>
+      <span><hr /></span>
+      <a href="#" class="active">Recommended Dishes</a>
+      <a href="#">Spicy Delights</a>
+      <a href="#">Vegetarian Options</a>
+      <a href="#">Tandoori Specialties</a>
+      <a href="#">Dessert Delicacies</a>
+      <a href="#">Street Food Favorites</a>
+      <a href="#">Healthy Salads</a>
+      <a href="#">Seafood Selections</a>
+      <a href="#">Mouth-Watering Appetizers</a>
+      <a href="#">Sizzling BBQ Platters</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-8 col-lg-9 p-4">
+      <h4>Recommended Dishes</h4>
+
+      <div *ngFor="let items of menuData" class="menu-item">
+        <img
+          src="{{
+            items?.itemImage ||
+              '../../assets/Images/e5491f3e2656022bbd45cf43455c5e70.jpg'
+          }}"
+          alt="Dish"
+        />
+        <div class="menu-details">
+          <strong>{{ items?.item_name }}</strong
+          ><br />
+          ₹ {{ items?.item_discounted_price }}
+        </div>
+        <!-- <span class="add-btn" (click)="addToCart()">ADD +</span> -->
+        <app-quantity-selector
+          (quantityChange)="updateCart($event)"
+        ></app-quantity-selector>
+      </div>
+
+      <!-- <div class="menu-item">
+        <img
+          src="../../assets/Images/e5491f3e2656022bbd45cf43455c5e70.jpg"
+          alt="Dish"
+        />
+        <div class="menu-details">
+          <strong>Zesty Rasam Soup</strong><br />
+          ₹ 110
+        </div>
+        <div class="counter">
+          <span class="add-btn">-</span> 1 <span class="add-btn">+</span>
+        </div>
+      </div> -->
+
+      <!-- <div class="menu-item">
+        <img
+          src="../../assets/Images/e5491f3e2656022bbd45cf43455c5e70.jpg"
+          alt="Dish"
+        />
+        <div class="menu-details">
+          <strong>Fluffy Idli Bites</strong><br />
+          ₹ 110
+        </div>
+        <span class="add-btn">ADD +</span>
+      </div>
+
+      <div class="menu-item">
+        <img
+          src="../../assets/Images/e5491f3e2656022bbd45cf43455c5e70.jpg"
+          alt="Dish"
+        />
+        <div class="menu-details">
+          <strong>Savory Sambar Stew</strong><br />
+          ₹ 110
+        </div>
+        <span class="add-btn">ADD +</span>
+      </div>
+
+      <h4 class="mt-4">More Dishes</h4>
+
+      <div class="menu-item">
+        <img
+          src="../../assets/Images/e5491f3e2656022bbd45cf43455c5e70.jpg"
+          alt="Dish"
+        />
+        <div class="menu-details">
+          <strong>Spicy Vada Crunch</strong><br />
+          ₹ 110
+        </div>
+        <span class="add-btn">ADD +</span>
+      </div>
+
+      <div class="menu-item">
+        <img
+          src="../../assets/Images/e5491f3e2656022bbd45cf43455c5e70.jpg"
+          alt="Dish"
+        />
+        <div class="menu-details">
+          <strong>Hearty Uttapam Feast</strong><br />
+          ₹ 110
+        </div>
+        <span class="add-btn">ADD +</span>
+      </div>
+
+      <div class="menu-item">
+        <img
+          src="../../assets/Images/e5491f3e2656022bbd45cf43455c5e70.jpg"
+          alt="Dish"
+        />
+        <div class="menu-details">
+          <strong>Comforting Pongal Bowl</strong><br />
+          ₹ 110
+        </div>
+        <span class="add-btn">ADD +</span>
+      </div> -->
+    </div>
+  </div>
 </div>
+
+<!-- notification -->
+<div id="cart-notification" class="cart-popup">
+  <span>4 items added</span>
+  <a href="#" class="view-cart">View cart 🛒</a>
+</div>
+
+<app-cart-notification></app-cart-notification>

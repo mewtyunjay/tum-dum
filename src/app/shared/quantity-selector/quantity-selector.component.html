@@ -1,0 +1,11 @@
+<div *ngIf="quantity === 0; else quantityControls">
+  <button class="add-button" (click)="addToCart()">ADD +</button>
+</div>
+
+<ng-template #quantityControls>
+  <div class="quantity-container">
+    <button class="quantity-btn" (click)="decrement()">-</button>
+    <span class="quantity-value">{{ quantity }}</span>
+    <button class="quantity-btn" (click)="increment()">+</button>
+  </div>
+</ng-template>

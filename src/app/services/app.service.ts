@@ -19,4 +19,37 @@ export class AppService {
   getIpAddress(): Observable<{ ip: string }> {
     return this.http.get<{ ip: string }>(this.ipApiUrl);
   }
+  getRestaurantLists(): Observable<any[]> {
+    return this.firestore
+      .collection("registeredRestaurant")
+      .snapshotChanges()
+      .pipe(
+        map((actions) => {
+          return actions.map((a) => {
+            const data: any = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          });
+        })
+      );
+  }
+
+  getRestaurantMenuDetails(documentId: string): Observable<any[]> {
+    return (
+      this.firestore
+        // .collection("registeredRestaurant")
+        // .doc(documentId)
+        .collection("restaurantMenu", (ref) =>
+          ref.where("resId", "==", documentId)
+        )
+        .valueChanges()
+    );
+  }
+
+  getRestaurantDetailsDocumentById(documentId: string) {
+    return this.firestore
+      .collection("registeredRestaurant")
+      .doc(documentId)
+      .get();
+  }
 }

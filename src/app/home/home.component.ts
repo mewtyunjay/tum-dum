@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { SlickCarouselComponent } from "ngx-slick-carousel";
 import { Observable } from "rxjs";
 import { AppService } from "../services/app.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-home",
@@ -15,7 +16,12 @@ export class HomeComponent implements OnInit {
   @ViewChild("slickCarousel2", { static: false })
   slickCarousel2!: SlickCarouselComponent;
   ip: any;
-  constructor(private http: HttpClient, private ipService: AppService) {}
+  restaurantList: any;
+  constructor(
+    private http: HttpClient,
+    private appService: AppService,
+    private router: Router
+  ) {}
   // slideConfig = {
   //   slidesToShow: 4,
   //   slidesToScroll: 1,
@@ -372,6 +378,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     // this.getIpAddress();
     console.log("hiii");
+    this.getRestaurants();
   }
   slideConfig = {
     slidesToShow: 3,
@@ -451,7 +458,7 @@ export class HomeComponent implements OnInit {
     this.slickCarousel.slickNext();
   }
   getIpAddress() {
-    this.ipService.getIpAddress().subscribe(
+    this.appService.getIpAddress().subscribe(
       (data: any) => {
         this.ip = data.ip;
       },
@@ -489,5 +496,18 @@ export class HomeComponent implements OnInit {
 
   slickPrev() {
     this.slickCarousel2.slickPrev();
+  }
+
+  getRestaurants() {
+    this.appService.getRestaurantLists().subscribe((res: any) => {
+      this.restaurantList = res.map((restaurant: any) => ({
+        ...restaurant,
+        cuisinesList: restaurant.cuisinesList || [],
+      }));
+      console.log("this.restaurants", this.restaurantList);
+    });
+  }
+  onResClick(itemId: any) {
+    this.router.navigate(["home/restaurant_Detail", itemId]);
   }
 }

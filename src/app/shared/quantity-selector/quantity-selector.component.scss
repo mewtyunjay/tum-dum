@@ -1,0 +1,30 @@
+.add-button {
+  color: blue;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  background: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: black;
+  min-width: 80px;
+  justify-content: space-between;
+}
+
+.quantity-btn {
+  background: none;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.quantity-value {
+  font-size: 16px;
+}

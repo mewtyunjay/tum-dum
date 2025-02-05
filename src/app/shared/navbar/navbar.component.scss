@@ -119,3 +119,88 @@
   color: #0a0a0a;
   // font-weight: 500;
 }
+
+//login
+/* Popup Container */
+.login-popup {
+  width: 350px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Heading */
+.login-popup h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+/* Description */
+.login-popup p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Input Field */
+.phone-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* OTP Button */
+.otp-button {
+  width: 100%;
+  background: #0023ff;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.otp-button:hover {
+  background: #001acc;
+}
+
+/* New User Button */
+.new-user-button {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+  color: #555;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.new-user-button:hover {
+  background: #f5f5f5;
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+  .login-popup {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .otp-button,
+  .new-user-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

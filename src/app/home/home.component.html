@@ -45,7 +45,7 @@
   <div class="banner-container">
     <!-- Banner 1 -->
     <div class="banner">
-      <img src="../../assets/Images/banner (5).png" alt="Banner 1" />
+      <img src="../../assets/Images/banner (8).png" alt="Banner 1" />
     </div>
 
     <!-- Banner 2 -->
@@ -292,7 +292,7 @@
       </div>
     </div>
     <ngx-slick-carousel #slickCarousel class="carousel" [config]="slideConfig">
-      <div ngxSlickItem *ngFor="let item of restaurants" class="slide">
+      <div ngxSlickItem *ngFor="let item of restaurantList" class="slide">
         <!-- <div class="restaurant-card">
           <img [src]="item.image" alt="Restaurant Image" />
           <h5 class="restaurant-name">{{ item.name }}</h5>
@@ -310,29 +310,40 @@
             {{ item.location }}
           </p>
         </div> -->
-        <div class="restaurant-card">
+        <div class="restaurant-card" (click)="onResClick(item?.id)">
           <div class="image-container">
             <img
-              [src]="item.image"
-              alt="Restaurant Image"
+              [src]="
+                item?.image ||
+                '../../assets/Images/e5491f3e2656022bbd45cf43455c5e70.jpg'
+              "
+              [alt]="item.res_name"
               class="restaurant-image"
             />
-            <button (click)="addItem()" class="add-button">ADD +</button>
+            <!-- <button (click)="addItem(restaurant)" class="add-button">ADD +</button> -->
           </div>
-          <h5 class="restaurant-name">{{ item.name }}</h5>
+          <h5 class="restaurant-name">{{ item?.res_name }}</h5>
           <div class="restaurant-details d-flex align-items-center">
-            <img
-              src="../../assets/Images/star.png"
-              alt="Star"
-              style="width: 16px; height: 16px; margin-right: 4px"
-            />
-            <span class="rating_color">{{ item.rating }}</span>
-            <span class="rating_color">• 1{{ item.time }}</span>
+            <p>
+              <span class="d-flex align-items-center">
+                <img
+                  src="../../assets/Images/tachometer-fast.png"
+                  alt="Time Icon"
+                  style="width: 16px; height: 16px; margin-right: 4px"
+                />15 mins<br />
+              </span>
+              <span class="dishDetails">
+                <ng-container
+                  *ngFor="
+                    let cuisine of item?.cuisinesList.slice(0, 4);
+                    let last = last
+                  "
+                >
+                  {{ cuisine?.item_text }}<span *ngIf="!last">, </span>
+                </ng-container>
+              </span>
+            </p>
           </div>
-          <p class="dishDetails">
-            {{ item.details }}<br />
-            {{ item.location }}
-          </p>
         </div>
       </div>
     </ngx-slick-carousel>
@@ -386,22 +397,23 @@
       </div>
       <div class="icon-item">
         <img
-          src="../../assets/Images/sushi in a round plate top view only.png "
-          alt="Japanese"
+        src="../../assets/Images/sushi in a round plate top view only.png "
+        alt="Japanese"
         />
         <p>Japanese</p>
       </div>
       <div class="icon-item">
         <img
-          src="../../assets/Images/sushi in a round plate top view only.png "
-          alt="Thai"
+        src="../../assets/Images/sushi in a round plate top view only.png "
+        alt="Thai"
         />
         <p>Thai</p>
       </div>
     </div>
   </div>
 </div> -->
-<div class="resturant_section">
+<!-- <button (click)="addItem()" class="add-button">ADD +</button> -->
+<!-- <div class="resturant_section">
   <div class="dish_container py-5">
     <h2 class="section-title">
       Restaurants with online food delivery in Bhubaneswar
@@ -415,7 +427,6 @@
               alt="Restaurant Image"
               class="restaurant-image"
             />
-            <button (click)="addItem()" class="add-button">ADD +</button>
           </div>
           <h5 class="restaurant-name">Silver Tiger Tavern</h5>
           <div class="restaurant-details d-flex align-items-center">
@@ -832,6 +843,57 @@
             Chinese, Asian, Tibetan, Desserts<br />
             Adigodi
           </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="resturant_section">
+  <div class="dish_container py-5">
+    <h2 class="section-title">
+      Restaurants with online food delivery in Bhubaneswar
+    </h2>
+    <div class="row g-4">
+      <div
+        *ngFor="let restaurant of restaurantList"
+        class="col-12 col-sm-6 col-md-4 col-lg-3"
+      >
+        <div class="restaurant-card" (click)="onResClick(restaurant?.id)">
+          <div class="image-container">
+            <img
+              [src]="
+                restaurant?.image ||
+                '../../assets/Images/e5491f3e2656022bbd45cf43455c5e70.jpg'
+              "
+              [alt]="restaurant?.res_name"
+              class="restaurant-image"
+            />
+            <!-- <button (click)="addItem(restaurant)" class="add-button">ADD +</button> -->
+          </div>
+          <h5 class="restaurant-name">{{ restaurant?.res_name }}</h5>
+          <div class="restaurant-details d-flex align-items-center">
+            <p>
+              <img
+                src="../../assets/Images/tachometer-fast.png"
+                alt="Time Icon"
+                style="width: 16px; height: 16px; margin-right: 4px"
+              />
+              15 mins<br />
+              <span class="dishDetails">
+                <ng-container *ngIf="restaurant?.cuisinesList">
+                  <ng-container
+                    *ngFor="
+                      let cuisine of restaurant?.cuisinesList?.slice(0, 4);
+                      let last = last
+                    "
+                  >
+                    {{ cuisine?.item_text }}<span *ngIf="!last">, </span>
+                  </ng-container>
+                </ng-container>
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
