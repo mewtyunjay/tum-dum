@@ -310,7 +310,7 @@
             {{ item.location }}
           </p>
         </div> -->
-        <div class="restaurant-card" (click)="onResClick(item?.id)">
+        <div class="restaurant-card hand" (click)="onResClick(item?.id)">
           <div class="image-container">
             <img
               [src]="
@@ -859,7 +859,7 @@
         *ngFor="let restaurant of restaurantList"
         class="col-12 col-sm-6 col-md-4 col-lg-3"
       >
-        <div class="restaurant-card" (click)="onResClick(restaurant?.id)">
+        <div class="restaurant-card hand" (click)="onResClick(restaurant?.id)">
           <div class="image-container">
             <img
               [src]="

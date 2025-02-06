@@ -22,6 +22,7 @@ export class RestaurantDetailsComponent implements OnInit {
   //   "North Indian",
   //   "North Indian",
   // ];
+  userId: string = "FI1sl8HaEzgn3V5FA4h3RpbMxD63";
   menuData: any;
   resId: any;
   path: any;
@@ -30,6 +31,7 @@ export class RestaurantDetailsComponent implements OnInit {
   itemsAdded: number = 0;
   categoryMapper = new Map();
   array = Array;
+  activeCat: any;
   constructor(
     // private apiService: ApiService,
     // private authService: AuthService,
@@ -48,6 +50,7 @@ export class RestaurantDetailsComponent implements OnInit {
       this.resId = param.get("id") || 0;
       this.path = this.activeRoute.snapshot.paramMap.get("path");
       this.getRestaurantDetails();
+      this.getCartDetailsByUserId();
       console.log("this.resId ", this.resId);
     });
     this.cartService.cartCount$.subscribe((count) => {
@@ -64,6 +67,24 @@ export class RestaurantDetailsComponent implements OnInit {
     this.cartService.addItem(); // Calls the service globally
   }
 
+  getCartDetailsByUserId() {
+    let cartData: any;
+    this.cartService
+      .getCartDetailsDocumentById(this.userId)
+      .subscribe((snapshot: any) => {
+        cartData = snapshot.data();
+        // this.cartItemsMapper = cartData?.menuItems
+        //   ? new Map(Object.entries(cartData.menuItems))
+        //   : new Map();
+        if (cartData.resId == this.resId) {
+          cartData?.menuItems?.forEach((ele: any) => {
+            this.cartUpdate(ele, ele?.quantity, true);
+          });
+        }
+        console.log("cartDetails", cartData);
+      });
+  }
+
   getAllMenu() {
     if (this.resId) {
       this.appService.getRestaurantMenuDetails(this.resId).subscribe(
@@ -75,6 +96,7 @@ export class RestaurantDetailsComponent implements OnInit {
             elementByCategory.push(element);
             this.categoryMapper.set(element.categoryName, elementByCategory);
           });
+          this.onCatClick(data[0].categoryName);
           console.log("getMenuData", data);
         },
         (error: any) => {
@@ -99,7 +121,8 @@ export class RestaurantDetailsComponent implements OnInit {
     console.log("Cart updated, Quantity:", quantity);
   }
 
-  cartUpdate(item: any, quantity: number) {
+  cartUpdate(item: any, quantity: number, isFirst = false) {
+    const date = new Date();
     if (item.resId !== this.resId) {
       this.cartItemsMapper = new Map();
       this.itemsAdded = 0;
@@ -107,9 +130,10 @@ export class RestaurantDetailsComponent implements OnInit {
     let updatedItem = this.cartItemsMapper?.get(item.id) || item;
     updatedItem = {
       ...updatedItem,
-      quantity: updatedItem.quantity
-        ? +updatedItem.quantity + quantity
-        : quantity,
+      quantity:
+        updatedItem.quantity && !isFirst
+          ? +updatedItem.quantity + quantity
+          : quantity,
     };
     if (updatedItem.quantity) {
       updatedItem.addedQtyPrice =
@@ -121,9 +145,26 @@ export class RestaurantDetailsComponent implements OnInit {
     console.log("updatedItem", this.cartItemsMapper);
     // this.cartService.addItem();
     this.itemsAdded = this.itemsAdded + quantity;
-    this.showNotification = true;
-    setTimeout(() => (this.showNotification = false), 3000);
+
     this.calTotalPrice();
+    if (isFirst) return;
+    let fd = {
+      menuItems: Array.from(this.cartItemsMapper.values()),
+      resId: this.resId,
+      userId: this.userId,
+      createdDate: date.toISOString(),
+    };
+    const docRef = this.firestore
+      .collection("userCart")
+      .doc(this.userId?.toString())
+      .set(fd)
+      .then(() => {
+        this.showNotification = true;
+        setTimeout(() => (this.showNotification = false), 3000);
+      })
+      .catch((error) => {
+        console.error("Firestore update error:", error);
+      });
   }
   calTotalPrice() {
     let totalPrice: number = 0;
@@ -131,5 +172,10 @@ export class RestaurantDetailsComponent implements OnInit {
       totalPrice += eachItem?.addedQtyPrice;
     });
     console.log("totalPrice", totalPrice);
+  }
+
+  onCatClick(cat: any) {
+    this.activeCat = cat;
+    document.getElementById(cat)?.scrollIntoView({ behavior: "smooth" });
   }
 }

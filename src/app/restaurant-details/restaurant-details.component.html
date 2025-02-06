@@ -114,22 +114,29 @@
         </span>
       </div>
       <span><hr /></span>
-      <a href="#" class="active">Recommended Dishes</a>
-      <a href="#">Spicy Delights</a>
-      <a href="#">Vegetarian Options</a>
-      <a href="#">Tandoori Specialties</a>
-      <a href="#">Dessert Delicacies</a>
-      <a href="#">Street Food Favorites</a>
-      <a href="#">Healthy Salads</a>
-      <a href="#">Seafood Selections</a>
-      <a href="#">Mouth-Watering Appetizers</a>
-      <a href="#">Sizzling BBQ Platters</a>
+      <div *ngFor="let category of array.from(categoryMapper.keys())">
+        <a
+          class="hand"
+          (click)="onCatClick(category)"
+          [ngClass]="{ active: category == activeCat }"
+          >{{ category }}</a
+        >
+        <!-- <a href="#" class="active">Spicy Delights</a>
+        <a href="#">Vegetarian Options</a>
+        <a href="#">Tandoori Specialties</a>
+        <a href="#">Dessert Delicacies</a>
+        <a href="#">Street Food Favorites</a>
+        <a href="#">Healthy Salads</a>
+        <a href="#">Seafood Selections</a>
+        <a href="#">Mouth-Watering Appetizers</a>
+        <a href="#">Sizzling BBQ Platters</a> -->
+      </div>
     </div>
 
     <!-- Main Content -->
     <div class="col-md-8 col-lg-9 p-4">
       <ng-container *ngFor="let category of array.from(categoryMapper.keys())">
-        <h4>{{ category }}</h4>
+        <h4 [id]="category">{{ category }}</h4>
 
         <div
           *ngFor="let items of categoryMapper.get(category)"
