@@ -98,7 +98,7 @@
           </div>
         </div>
 
-        <!-- <div class="accordion-item mt-3">
+        <div class="accordion-item mt-3">
           <h2 class="accordion-header" id="paymentHeading">
             <button
               class="accordion-button collapsed d-flex justify-content-between align-items-center"
@@ -114,7 +114,6 @@
                   All transactions are secured and encrypted
                 </p>
               </div>
-             
             </button>
           </h2>
           <div
@@ -128,7 +127,6 @@
                 All transactions are secured and encrypted.
               </p>
 
-            
               <div class="form-check">
                 <input
                   class="form-check-input"
@@ -161,80 +159,75 @@
                 >
               </div>
 
-             
               <button class="btn btn-blue mt-3 w-100">Proceed to Pay</button>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
 
     <div class="col-lg-6">
-      <!-- <div class="card p-4">
+      <div class="card p-4">
         <h5 class="fw-bold">Summary</h5>
         <p class="text-muted">All transactions are secured and encrypted</p>
 
-      
-        <div class="d-flex align-items-center border-bottom pb-2 mb-2">
+        <div
+          *ngFor="let items of cartItems"
+          class="d-flex align-items-center border-bottom pb-2 mb-2"
+        >
           <img
-            src="https://via.placeholder.com/50"
+            src="{{
+              items?.itemImage ||
+                '../../assets/Images/e5491f3e2656022bbd45cf43455c5e70.jpg'
+            }}"
             alt="Product"
-            class="rounded"
+            class="rounded imgSize"
           />
           <div class="ms-2 flex-grow-1">
-            <strong>Fluffy Idli Bites</strong>
-            <p class="mb-0 small text-muted">Quantity: 2</p>
+            <strong>{{ items?.item_name }}</strong>
+            <p class="mb-0 small text-muted">Quantity: {{ items?.quantity }}</p>
           </div>
-          <span>Rs. 2399.00</span>
+          <span>Rs. {{ items?.addedQtyPrice }}</span>
         </div>
-        <div class="d-flex align-items-center border-bottom pb-2 mb-2">
-          <img
-            src="https://via.placeholder.com/50"
-            alt="Product"
-            class="rounded"
-          />
-          <div class="ms-2 flex-grow-1">
-            <strong>Fluffy Idli Bites</strong>
-            <p class="mb-0 small text-muted">Quantity: 2</p>
-          </div>
-          <span>Rs. 2399.00</span>
-        </div>
-        <div class="d-flex align-items-center border-bottom pb-2 mb-2">
-          <img
-            src="https://via.placeholder.com/50"
-            alt="Product"
-            class="rounded"
-          />
-          <div class="ms-2 flex-grow-1">
-            <strong>Fluffy Idli Bites</strong>
-            <p class="mb-0 small text-muted">Quantity: 2</p>
-          </div>
-          <span>Rs. 2399.00</span>
-        </div>
-     
+
         <div class="d-flex justify-content-between mt-3">
           <span>Shipping</span>
-          <span>Rs. 2399.00</span>
+          <span>Rs. 00</span>
         </div>
         <div class="d-flex justify-content-between">
           <span>Tax</span>
-          <span>Rs. 2399.00</span>
+          <span>Rs. 00</span>
         </div>
         <div class="d-flex justify-content-between">
           <span>Discount</span>
-          <span>Rs. 2399.00</span>
+          <span>Rs. 00</span>
         </div>
 
         <div
           class="d-flex justify-content-between fw-bold fs-5 mt-3 border-top pt-2"
         >
           <span>Total</span>
-          <span>Rs. 4399.00</span>
+          <span>Rs. {{ totalPrice }}</span>
         </div>
 
-      
+        <!-- Checkbox for Pickup -->
+        <div class="form-check mt-3">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="pickupCheckbox"
+            (click)="onChecked()"
+          />
+          <label class="form-check-label" for="pickupCheckbox">
+            Pickup from restaurant
+          </label>
+        </div>
+
         <button class="btn btn-blue w-100 mt-3">Order Now</button>
-      </div> -->
+        <!-- [href]="'tel:' + resDetails?.contact" -->
+
+        <a class="btn btn-success w-100 mt-3">Call Now</a>
+      </div>
     </div>
   </div>
 </div>
