@@ -5,6 +5,11 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { BreadCrumbComponent } from "./bread-crumb/bread-crumb.component";
 import { CartNotificationComponent } from "./cart-notification/cart-notification.component";
 import { QuantitySelectorComponent } from "./quantity-selector/quantity-selector.component";
+import { HttpClientModule } from "@angular/common/http";
+import { RouterModule } from "@angular/router";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { AngularFireModule } from "@angular/fire/compat";
+import { environment } from "src/environments/environment";
 
 @NgModule({
   declarations: [
@@ -14,7 +19,14 @@ import { QuantitySelectorComponent } from "./quantity-selector/quantity-selector
     CartNotificationComponent,
     QuantitySelectorComponent,
   ],
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+  ],
   exports: [
     FooterComponent,
     NavbarComponent,

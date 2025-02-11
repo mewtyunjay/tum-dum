@@ -49,6 +49,8 @@ export class RestaurantDetailsComponent implements OnInit {
     this.activeRoute.paramMap.subscribe((param: any) => {
       this.resId = param.get("id") || 0;
       this.path = this.activeRoute.snapshot.paramMap.get("path");
+      // console.log("path", this.path);
+
       this.getRestaurantDetails();
       this.getCartDetailsByUserId();
       console.log("this.resId ", this.resId);

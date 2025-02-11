@@ -204,3 +204,61 @@
     padding: 10px;
   }
 }
+
+
+
+
+//custom modal css
+/* Custom Styling for the Modal */
+.modal-content {
+  border-radius: 8px;
+  padding: 20px;
+  // text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.phone-input {
+  padding: 12px;
+  font-size: 16px;
+}
+
+.otp-button,
+.new-user-button {
+  margin-top: 10px;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.new-user-button {
+  color: #007bff;
+  text-decoration: none;
+}
+
+//otp modal
+.modal-content {
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.otp-input {
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 8px;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #0000ff, #0000cc);
+  border: none;
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 8px;
+}
