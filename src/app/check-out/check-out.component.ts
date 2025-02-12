@@ -22,6 +22,10 @@ export class CheckOutComponent implements OnInit {
   transactionNote: string = "Payment for Order";
   orderId: string = "ORDER98765";
   totalQty: any = 0;
+  isOpen = false;
+  orderStatus: boolean = false;
+  orderDetails: any;
+  orderStatusInterval: any;
   constructor(
     // private apiService: ApiService,
     // private authService: AuthService,
@@ -36,14 +40,23 @@ export class CheckOutComponent implements OnInit {
   ngOnInit(): void {
     this.getCartDetailsByUserId();
   }
+  openModal() {
+    this.isOpen = true;
+  }
+
+  closeModal() {
+    this.isOpen = false;
+  }
+
   payWithUPI() {
+    this.closeModal();
     const upiUrl = `upi://pay?pa=${this.upiId}&pn=Merchant+Name&tr=${this.orderId}&tn=${this.transactionNote}&am=${this.amount}&cu=INR`;
     //  const upiUrl = `upi://pay?pa=${this.upiId}&pn=Merchant+Name&tr=${this.orderId}&tn=${this.transactionNote}&am=${this.amount}&cu=INR&url=https://yourwebsite.com/payment-status`;
     window.location.href = upiUrl;
-    setTimeout(() => {
-      // Redirect to a success/failure page after returning from UPI app
-      this.createOrder();
-    }, 5000);
+    // setTimeout(() => {
+    //   // Redirect to a success/failure page after returning from UPI app
+    //   this.createOrder();
+    // }, 5000);
   }
   getCartDetailsByUserId() {
     let cartData: any;
@@ -119,11 +132,17 @@ export class CheckOutComponent implements OnInit {
   }
 
   async createOrder(): Promise<void> {
-    console.log("hii");
-
+    this.openModal();
     const d = new Date();
     const orderId = d.getTime();
     const batch = this.firestore.firestore.batch();
+    this.getOrderStatus(orderId);
+
+    // Set an interval to call it every 5 seconds
+    this.orderStatusInterval = setInterval(() => {
+      this.getOrderStatus(orderId);
+    }, 5000);
+    return;
     const orderRef = this.firestore
       .collection("customerOrders")
       .doc(orderId.toString()).ref;
@@ -137,7 +156,7 @@ export class CheckOutComponent implements OnInit {
       menu_total_price: this.totalPrice,
       menu_total_quantity: this.totalQty,
       order_id: orderId.toString(),
-      order_status: "",
+      order_status: "Pending",
       res_id: this.resId,
       paymentStatus: "",
       created_time: new Date().toISOString(),
@@ -145,9 +164,38 @@ export class CheckOutComponent implements OnInit {
 
     this.cartItems.forEach((item: any) => {
       const itemRef = this.firestore.collection("orderMenuItems").doc().ref;
-      batch.set(itemRef, { ...item, orderId: orderId.toString() });
+      batch.set(itemRef, {
+        ...item,
+        orderId: orderId.toString(),
+        resId: this.resId,
+      });
     });
 
     await batch.commit();
+  }
+
+  getOrderStatus(orderId: any) {
+    orderId = "1739345735236";
+    this.cartService.getOrderDetailsDocumentById(orderId.toString()).subscribe(
+      (snapshot: any) => {
+        this.orderDetails = snapshot.data();
+        console.log("orderDetails", this.orderDetails);
+        if (this.orderDetails?.order_status !== "Pending") {
+          this.stopPolling();
+          this.orderStatus = true;
+        }
+      },
+      (error) => {
+        console.error("Error fetching order status:", error);
+      }
+    );
+  }
+
+  stopPolling(): void {
+    if (this.orderStatusInterval) {
+      clearInterval(this.orderStatusInterval);
+      this.orderStatusInterval = null;
+      console.log("Polling stopped"); // Debugging
+    }
   }
 }

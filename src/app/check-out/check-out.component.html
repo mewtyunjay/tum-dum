@@ -248,3 +248,23 @@
     </div>
   </div>
 </div>
+
+<!-- Pending Modal -->
+<div class="modal-backdrop" *ngIf="isOpen">
+  <div class="modal-content">
+    <h2><Span *ngIf="!orderStatus" class="text-danger">Please wait !</Span></h2>
+    <h2><Span *ngIf="orderStatus" class="text-success">Accepted !</Span></h2>
+    <p *ngIf="!orderStatus">
+      While "{{ resDetails?.res_name }}" confirms your order,after that you can
+      proceed for payment..
+    </p>
+    <p *ngIf="orderStatus">
+      Your Order has been accepted by "{{ resDetails?.res_name }}",now you can
+      proceed for payment..
+    </p>
+    <p class="text-danger">Don't go back or reload the page</p>
+    <button *ngIf="orderStatus" class="btn btn-success" (click)="payWithUPI()">
+      Proceed to Payment
+    </button>
+  </div>
+</div>

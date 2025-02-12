@@ -24,4 +24,7 @@ export class CartService {
   getCartDetailsDocumentById(documentId: string) {
     return this.firestore.collection("userCart").doc(documentId).get();
   }
+  getOrderDetailsDocumentById(documentId: string) {
+    return this.firestore.collection("customerOrders").doc(documentId).get();
+  }
 }
