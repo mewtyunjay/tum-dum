@@ -1,251 +1,80 @@
 <app-navbar></app-navbar>
-<div class="horizontalLine d-flex">
-  <a (click)="onGobackClick()" class="go-back-btn">
-    <img src="../../assets/Images/arrow-left.png" alt="Back Arrow" />
-    Go Back
-  </a>
-</div>
-<div class="horizontalLine">
-  <h2>Checkout with these simple steps</h2>
+
+<!-- Disclaimer Banner -->
+<div class="disclaimer-banner">
+  <p>TumDum currently acts solely as an enabler between customers and restaurants. Please contact the restaurants directly to resolve any order-related issues.</p>
 </div>
 
-<div class="horizontalLine mt-1">
-  <div class="row g-4">
-    <!-- Left Column -->
-    <div class="col-lg-6">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Disclaimer</h4>
-          <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6> -->
-          <p class="card-text">
-            "TumDum currently acts solely as an enabler between customers and
-            restaurants. Please contact the restaurants directly to resolve any
-            order-related issues."
-          </p>
+<div class="cart-container">
+  <!-- Back Button -->
+  <div class="back-section">
+    <a (click)="onGobackClick()" class="go-back-btn">
+      <img src="../../assets/Images/arrow-left.png" alt="Back Arrow" />
+      Go Back
+    </a>
+  </div>
+
+  <!-- Cart Items Section -->
+  <div class="cart-items-section">
+    <h5 class="section-title">Your Order</h5>
+    <div *ngFor="let items of cartItems" class="cart-item">
+      <div class="item-details">
+        <img src="{{items?.itemImage || '../../assets/Images/e5491f3e2656022bbd45cf43455c5e70.jpg'}}" alt="Product" class="item-image" />
+        <div class="item-info">
+          <strong class="item-name">{{ items?.item_name }}</strong>
+          <div class="quantity-price-row">
+            <div class="quantity-selector">
+              <button class="qty-btn" (click)="decrementQuantity(items)">−</button>
+              <span class="qty-value">{{ items?.quantity }}</span>
+              <button class="qty-btn" (click)="incrementQuantity(items)">+</button>
+            </div>
+            <span class="item-price">Rs. {{ items?.addedQtyPrice }}</span>
+          </div>
         </div>
       </div>
-      <!-- <div class="accordion" id="checkoutAccordion">
-       
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="shippingHeading">
-            <button
-              class="accordion-button d-flex justify-content-between align-items-center"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#shippingCollapse"
-              aria-expanded="true"
-              aria-controls="shippingCollapse"
-            >
-              <div>
-                <h5 class="mb-0 fw-bold mb-2">Shipping</h5>
-                <p class="text-muted small mb-0">
-                  All transactions are secured and encrypted
-                </p>
-              </div>
-            </button>
-          </h2>
-          <div
-            id="shippingCollapse"
-            class="accordion-collapse collapse show"
-            aria-labelledby="shippingHeading"
-            data-bs-parent="#checkoutAccordion"
-          >
-            <div class="accordion-body">
-             
-              <div class="border p-3 rounded d-flex align-items-center">
-                <img
-                  src="../../assets/Images/Vector (8).png"
-                  alt="home"
-                  width="24"
-                  class="me-2"
-                />
-                <div class="flex-grow-1">
-                  <strong>My home</strong>
-                  <p class="mb-0 text-muted small">
-                    245/3, Nayapalli Bazaar, Old Market, City Name, Pincode
-                  </p>
-                </div>
-              </div>
+    </div>
+  </div>
 
-            
-              <div class="row mt-3 g-2">
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Address Type"
-                  />
-                </div>
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="House No."
-                  />
-                </div>
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Landmark"
-                  />
-                </div>
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Pincode"
-                  />
-                </div>
-              </div>
-
-              <div class="d-flex gap-2 mt-3">
-                <button class="btn btn-dark flex-grow-1">Save & Proceed</button>
-                <button class="btn btn-outline-secondary">
-                  Reset to Default
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item mt-3">
-          <h2 class="accordion-header" id="paymentHeading">
-            <button
-              class="accordion-button collapsed d-flex justify-content-between align-items-center"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#paymentCollapse"
-              aria-expanded="false"
-              aria-controls="paymentCollapse"
-            >
-              <div>
-                <h5 class="mb-0 fw-bold mb-2">Payment</h5>
-                <p class="text-muted small mb-0">
-                  All transactions are secured and encrypted
-                </p>
-              </div>
-            </button>
-          </h2>
-          <div
-            id="paymentCollapse"
-            class="accordion-collapse collapse"
-            aria-labelledby="paymentHeading"
-            data-bs-parent="#checkoutAccordion"
-          >
-            <div class="accordion-body">
-              <p class="text-muted">
-                All transactions are secured and encrypted.
-              </p>
-
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="paymentMethod"
-                  id="creditCard"
-                />
-                <label class="form-check-label" for="creditCard"
-                  >Credit/Debit Card</label
-                >
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="paymentMethod"
-                  id="paypal"
-                />
-                <label class="form-check-label" for="paypal">PayPal</label>
-              </div>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="paymentMethod"
-                  id="cod"
-                />
-                <label class="form-check-label" for="cod"
-                  >Cash on Delivery</label
-                >
-              </div>
-
-              <button class="btn btn-blue mt-3 w-100">Proceed to Pay</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
+  <!-- Order Summary Section -->
+  <div class="summary-section">
+    <div class="summary-item">
+      <span>Subtotal</span>
+      <span>Rs. {{ totalPrice }}</span>
+    </div>
+    <div class="summary-item">
+      <span>Delivery Fee</span>
+      <span>Rs. 00</span>
+    </div>
+    <div class="summary-item">
+      <span>Tax</span>
+      <span>Rs. 00</span>
+    </div>
+    <div class="summary-item total">
+      <span>Total</span>
+      <span>Rs. {{ totalPrice }}</span>
     </div>
 
-    <div class="col-lg-6">
-      <div class="card p-4">
-        <h5 class="fw-bold">Summary</h5>
-        <!-- <p class="text-muted">All transactions are secured and encrypted</p> -->
-
-        <div
-          *ngFor="let items of cartItems"
-          class="d-flex align-items-center border-bottom pb-2 mb-2"
-        >
-          <img
-            src="{{
-              items?.itemImage ||
-                '../../assets/Images/e5491f3e2656022bbd45cf43455c5e70.jpg'
-            }}"
-            alt="Product"
-            class="rounded imgSize"
-          />
-          <div class="ms-2 flex-grow-1">
-            <strong>{{ items?.item_name }}</strong>
-            <p class="mb-0 small text-muted">Quantity: {{ items?.quantity }}</p>
-          </div>
-          <span>Rs. {{ items?.addedQtyPrice }}</span>
-        </div>
-
-        <div class="d-flex justify-content-between mt-3">
-          <span>Shipping</span>
-          <span>Rs. 00</span>
-        </div>
-        <div class="d-flex justify-content-between">
-          <span>Tax</span>
-          <span>Rs. 00</span>
-        </div>
-        <div class="d-flex justify-content-between">
-          <span>Discount</span>
-          <span>Rs. 00</span>
-        </div>
-
-        <div
-          class="d-flex justify-content-between fw-bold fs-5 mt-3 border-top pt-2"
-        >
-          <span>Total</span>
-          <span>Rs. {{ totalPrice }}</span>
-        </div>
-
-        <!-- Checkbox for Pickup -->
-        <div class="form-check mt-3">
-          <input
-            type="checkbox"
-            class="form-check-input"
-            id="pickupCheckbox"
-            (click)="onChecked()"
-          />
-          <label class="form-check-label" for="pickupCheckbox">
-            Pickup from restaurant
-          </label>
-        </div>
-
-        <button class="btn btn-blue w-100 mt-3" (click)="createOrder()">
-          Order Now
-        </button>
-        <!-- [href]="'tel:' + resDetails?.contact" -->
-
-        <a
-          [href]="'tel:' + resDetails?.contact"
-          class="btn btn-success w-100 mt-3"
-          >Call Now</a
-        >
-      </div>
+    <!-- Pickup Option -->
+    <div class="pickup-option">
+      <input type="checkbox" class="form-check-input" id="pickupCheckbox" (click)="onChecked()" />
+      <label class="form-check-label" for="pickupCheckbox">
+        Pickup from restaurant
+      </label>
     </div>
+
+    <!-- Place Order Button -->
+    <button class="place-order-btn" (click)="createOrder()">
+      Place Order • Rs. {{ totalPrice }}
+    </button>
+
+    <!-- Call Restaurant Button -->
+    <button class="call-restaurant-btn" (click)="callRestaurant()">
+      <img src="../../assets/Images/phone.png" alt="Phone Icon" class="phone-icon" />
+      Call Restaurant for Delivery
+    </button>
+    <p class="delivery-disclaimer">
+      Delivery availability and service area are at restaurant's discretion
+    </p>
   </div>
 </div>
 
@@ -256,11 +85,11 @@
     <h2><Span *ngIf="orderStatus" class="text-success">Accepted !</Span></h2>
     <p *ngIf="!orderStatus">
       While "{{ resDetails?.res_name }}" confirms your order,after that you can
-      proceed for payment..
+      proceed for payment..
     </p>
     <p *ngIf="orderStatus">
       Your Order has been accepted by "{{ resDetails?.res_name }}",now you can
-      proceed for payment..
+      proceed for payment..
     </p>
     <p class="text-danger">Don't go back or reload the page</p>
     <button *ngIf="orderStatus" class="btn btn-success" (click)="payWithUPI()">

@@ -198,4 +198,60 @@ export class CheckOutComponent implements OnInit {
       console.log("Polling stopped"); // Debugging
     }
   }
+
+  incrementQuantity(item: any) {
+    if (item.quantity < 10) { // Maximum quantity limit
+      item.quantity++;
+      // Use item_price if price is not available
+      const unitPrice = item.price || item.item_price || item.item_discounted_price;
+      item.addedQtyPrice = unitPrice * item.quantity;
+      this.updateCart();
+    }
+  }
+
+  decrementQuantity(item: any) {
+    if (item.quantity > 1) {
+      item.quantity--;
+      // Use item_price if price is not available
+      const unitPrice = item.price || item.item_price || item.item_discounted_price;
+      item.addedQtyPrice = unitPrice * item.quantity;
+      this.updateCart();
+    } else {
+      // Remove item if quantity becomes 0
+      this.cartItems = this.cartItems.filter(cartItem => cartItem.id !== item.id);
+      this.updateCart();
+    }
+  }
+
+  updateCart() {
+    // Reset totals before recalculating
+    this.totalPrice = 0;
+    this.totalQty = 0;
+
+    // Recalculate totals
+    this.cartItems.forEach((item: any) => {
+      const unitPrice = item.price || item.item_price || item.item_discounted_price;
+      this.totalPrice += unitPrice * item.quantity;
+      this.totalQty += item.quantity || 0;
+    });
+
+    // Update cart in service
+    this.cartService.updateCartItems(this.userId, this.cartItems)
+      .then(() => {
+        console.log('Cart updated successfully');
+      })
+      .catch((error: Error) => {
+        console.error('Error updating cart:', error);
+      });
+  }
+
+  callRestaurant() {
+    // Use the restaurant's phone number from resDetails
+    const phoneNumber = this.resDetails?.phone_number || '';
+    if (phoneNumber) {
+      window.location.href = `tel:${phoneNumber}`;
+    } else {
+      console.error('Restaurant phone number not available');
+    }
+  }
 }

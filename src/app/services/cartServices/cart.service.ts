@@ -27,4 +27,19 @@ export class CartService {
   getOrderDetailsDocumentById(documentId: string) {
     return this.firestore.collection("customerOrders").doc(documentId).get();
   }
+
+  async updateCartItems(userId: string, items: any[]): Promise<void> {
+    try {
+      await this.firestore.collection("userCart").doc(userId).set({
+        menuItems: items,
+        userId: userId,
+        updatedAt: new Date().toISOString()
+      });
+      // Update cart count
+      this.cartCount.next(items.reduce((total, item) => total + (item.quantity || 0), 0));
+    } catch (error) {
+      console.error('Error updating cart:', error);
+      throw error;
+    }
+  }
 }

@@ -1,81 +1,39 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand">
   <div class="container-fluid">
-    <!-- Left Section (Logo + Address) -->
+    <!-- Left Section (Logo) -->
     <div class="d-flex align-items-center">
-      <!-- Logo -->
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <img
-          src="../../../assets/Images/Tumdum-Logo03-Black 1.png"
-          alt="Logo"
-          width="40"
-        />
+        <img src="../../../assets/Images/Tumdum-Logo03-Black 1.png" alt="Logo" width="40" />
       </a>
-      <!-- Location Bar -->
-      <!-- <div class="d-lg-flex location-bar align-items-center">
-        <img src="../../assets/Images/location-arrow.png" alt="Location Icon" />
-        <span class="nav-text ms-2">Kalyan Vihar, Railway Colony, Ma...</span>
-      </div> -->
     </div>
 
-    <!-- Toggle Button for Mobile -->
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarContent"
-      aria-controls="navbarContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
     <!-- Right Section -->
-    <div
-      class="collapse navbar-collapse justify-content-end"
-      id="navbarContent"
-    >
-      <ul class="navbar-nav align-items-center">
-        <!-- Search -->
-        <li class="nav-item hand">
-          <a
-            class="nav-link d-flex align-items-center"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
-            <img src="../../assets/Images/search.png" alt="Search Icon" />
-            <span class="ms-2">Search</span>
-          </a>
-        </li>
-        <!-- Sign In -->
-        <li class="nav-item hand">
-          <a
-            class="nav-link d-flex align-items-center"
-            data-bs-toggle="modal"
-            data-bs-target="#loginModal"
-          >
-            <img src="../../assets/Images/user (1).png" alt="User Icon" />
-            <span class="ms-2">Sign in</span>
-          </a>
-        </li>
-        <!-- Cart -->
-        <li class="nav-item hand">
-          <a
-            [routerLink]="['/check_out']"
-            routerLinkActive="router-link-active"
-            class="nav-link d-flex align-items-center"
-            href="#"
-          >
-            <img src="../../assets/Images/Vector (2).png" alt="Cart Icon" />
-            <span class="ms-2">Cart</span>
-          </a>
-        </li>
-      </ul>
+    <div class="d-flex align-items-center">
+      <!-- Profile -->
+      <div class="nav-item hand me-3">
+        <a class="nav-link d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#loginModal">
+          <img src="../../assets/Images/user (1).png" alt="User Icon" />
+        </a>
+      </div>
+      <!-- Cart -->
+      <div class="nav-item hand">
+        <a [routerLink]="['/check_out']" routerLinkActive="router-link-active" class="nav-link d-flex align-items-center">
+          <img src="../../assets/Images/Vector (2).png" alt="Cart Icon" />
+        </a>
+      </div>
     </div>
   </div>
 </nav>
 
-<!-- //searchbar -->
+<!-- Search Bar -->
+<div class="search-bar-container">
+  <div class="input-group">
+    <input type="search" class="form-control" placeholder="Search for restaurants, dishes etc..." aria-label="Search" />
+    <span class="input-group-text">
+      <img src="../../assets/Images/Vector_search.png" alt="Search Icon" />
+    </span>
+  </div>
+</div>
 
 <!-- Modal -->
 <div

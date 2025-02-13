@@ -383,68 +383,57 @@ export class HomeComponent implements OnInit {
   slideConfig = {
     slidesToShow: 3,
     slidesToScroll: 1,
-    // centerMode: true,
-    // centerPadding: "20px",
-    arrows: false,
-    // nextArrow:
-    //   '<button class="slick-next" style="color: red !important">Next</button>',
-    // prevArrow: '<button class="slick-prev">Prev</button>',
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          // dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          // dots: true,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          // dots: true,
-        },
-      },
-    ],
-  };
-
-  slideConfig2 = {
-    slidesToShow: 8.5,
-    slidesToScroll: 1,
-    // dots: false,
     infinite: false,
     arrows: false,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 6,
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 1.1,
           slidesToScroll: 1,
         },
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  slideConfig2 = {
+    slidesToShow: 4.5,
+    slidesToScroll: 1,
+    infinite: false,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4.5,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3.5,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3.5,
           slidesToScroll: 1,
         },
       },
