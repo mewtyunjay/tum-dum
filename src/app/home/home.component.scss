@@ -47,18 +47,10 @@
   background-color: #ffffff;
   font-family: Arial, sans-serif;
 }
-
-:host {
-  font-family: "Host Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
 .bestOpSection {
-  padding: 16px;
+  padding: 1rem;
   margin: 0;
-  max-width: 1200px;
-  margin: 0 auto;
 }
-
 .banner-container {
   display: flex;
   justify-content: center;
@@ -96,22 +88,19 @@
 .dish_section {
   background-color: #ffffff;
   color: #fff;
-  font-family: "Host Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 .dish_container {
-  padding: 16px;
+  padding: 1rem;
   margin: 0;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .section-title {
   color: #0a0a0a;
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: bold;
   margin-bottom: 1rem;
-  font-family: "Host Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .icon-item {
@@ -175,19 +164,8 @@
 }
 
 @media (min-width: 768px) {
-  .bestOpSection {
-    padding: 24px 16px;
-    margin: 0 auto;
-  }
-
-  .banner-container {
-    gap: 1.5rem;
-    padding: 24px 16px;
-    margin: 0 auto;
-  }
-
   .dish_container {
-    padding: 24px 16px;
+    padding: 2rem;
   }
 
   .section-title {
@@ -377,6 +355,38 @@
   cursor: pointer;
 }
 
+@media (min-width: 768px) {
+  .bestOpSection {
+    padding: 2rem;
+    margin: 0 2% 0 2%;
+  }
+
+  .banner-container {
+    gap: 1.5rem;
+    padding: 2rem;
+    margin: 0 2% 0 2%;
+  }
+
+  .restaurant-card {
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: none;
+  }
+
+  .restaurant-card img {
+    border-radius: 8px;
+  }
+
+  .carousel {
+    padding: 20px;
+  }
+
+  .slide {
+    padding: 10px;
+  }
+}
+
 .go-back-btn:hover {
   color: #00008B;
 }
@@ -396,13 +406,4 @@
 
 .cart-popup {
   background-color: #00008B;
-}
-
-.nav-link,
-.nav-text,
-.restaurant-name,
-.restaurant-details,
-.icon-item p,
-.section-title {
-  font-family: "Host Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
 }

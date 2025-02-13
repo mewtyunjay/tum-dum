@@ -427,6 +427,8 @@
   top: 0;
   z-index: 10;
   border-bottom: 1px solid #eee;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .back-button {
@@ -451,6 +453,7 @@
     font-weight: 700;
     margin-bottom: 8px;
     color: #333;
+    font-family: "Host Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
   }
   
   .restaurant-meta {
@@ -724,10 +727,6 @@
 @media (min-width: 768px) {
   .restaurant-header {
     padding: 24px 16px;
-    
-    .restaurant-name {
-      font-size: 32px;
-    }
   }
   
   .category-list-mobile {
@@ -735,9 +734,7 @@
   }
   
   .menu-sections {
-    padding: 24px 16px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 0 16px;
   }
   
   .menu-item {
@@ -773,8 +770,7 @@
     
     .category-title {
       padding: 0;
-      font-size: 18px;
-      font-weight: 600;
+      margin-bottom: 12px;
     }
   }
 
@@ -784,6 +780,10 @@
       gap: 12px;
       border-bottom: 1px solid #eee;
     }
+  }
+
+  .restaurant-header {
+    padding: 16px;
   }
 
   .item-content {
@@ -827,16 +827,4 @@
       font-size: 13px;
     }
   }
-}
-
-// Update all text elements to use Host Grotesk
-.restaurant-name,
-.item-name,
-.item-price,
-.category-btn,
-.search-input input,
-.add-button,
-.quantity-selector,
-.cart-popup {
-  font-family: "Host Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
 }
